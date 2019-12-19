@@ -3,5 +3,6 @@
 ### Contents ###
 1. Javascript
     1. [Node.js](./node/README.md)
+    1. [Typescript](./ts/README.md)
 
 

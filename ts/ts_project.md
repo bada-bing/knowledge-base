@@ -1,0 +1,24 @@
+[TS Project](https://basarat.gitbooks.io/typescript/content/docs/project/project.html)
+- Compilation Context - defined by tsconfig.json
+    - *tsconfig.json* - read by tsc and code editors with TS support
+- Declaration Spaces
+    - variable and type declaration space
+        - type declaration serves for the type annotation
+            - class, interface, type Foo
+- Modules
+    - Namespaces & Modules
+    - by default there is global namespace
+    - If you include import/export at the beginning of the file it creates file modules namespace (basically this happens if there is only single import in your file)
+        - instead of global namespace you need to explicitly import/export stuff
+    - Type of generated modules is determined by the **compiler** flag module in tsconfig
+        - External Modules [CommonJS, amd, ESM, others]
+            - depending on the "module" compiler option you can generate different JS
+                - ***NOTE***: sounds similar like Webpack config so check diff
+            - https://medium.com/computed-comparisons/commonjs-vs-amd-vs-requirejs-vs-es6-modules-2e814b114a0b
+    - Path Respolution
+        - when the path is not relative: [node style resolution](https://nodejs.org/api/modules.html#modules_all_together) - What is this about?
+        - in package.json: main vs type
+            - main is the entry point for the package
+            - https://medium.com/cameron-nokes/the-30-second-guide-to-publishing-a-typescript-package-to-npm-89d93ff7bccd
+            - [esnext-modules](https://v4.instrument.com/articles/esnext-modules)
+    - Namespaces [not important!]
