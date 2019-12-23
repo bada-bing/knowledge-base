@@ -1,0 +1,5 @@
+# Autodetect text files and convert them to LF
+# Ensures that LF (Unix) line endings are enforced for all files with following extensions
+# It prevents mix of CRLF and LF line endings which are caused by different developer platforms (Linux/Mac vs Win)
+
+* text=auto eol=lf
