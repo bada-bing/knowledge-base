@@ -22,7 +22,7 @@ This is the initial page about Node
 ### Mono-Repos
 - [storybook, lerna typescript combined](https://dev.to/shnydercom/monorepos-lerna-typescript-cra-and-storybook-combined-4hli)
 
-### Event-Driven-Nature ### 
+### Event-Driven-Nature ###
 *[ARTICLE](https://jscomplete.com/learn/node-beyond-basics/node-events)*
 
 HTTP requests, responses and streams (HTTP req and res are streams as well) implement EventEmitter Module (to emit and listen for events)
@@ -62,7 +62,7 @@ HTTP requests, responses and streams (HTTP req and res are streams as well) impl
 1. If you have the issue with node-sass
 	- install node-sass version 4.12.0, and after that worked for me. npm install node-sass@4.12.0 --save
 		- [Source of the answer SO](https://stackoverflow.com/questions/46515077/unable-to-install-node-sass-in-my-project/51530331#51530331)
-		
+
 1. npm fix: "Missing write access" [npm WSL](https://flaviocopes.com/npm-fix-missing-write-access-error/)
 	- sudo chown -R $USER /usr/local/lib/node_modules
 		- this command, I only had to remove /local from the directory path
