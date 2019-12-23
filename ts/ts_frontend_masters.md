@@ -21,12 +21,6 @@ TIP: it is a good idea to prefix interfaces with a capital I, that’s a convent
 		○ extend keyword
 
 Check Type Conversions keyword "as"
-const user = {…} as 
-Optional Chaining in TypeScript
-User
+const user = {…} as User
 
-
-Check Type Conversions keyword "as"
-const user = {…} as 
 [Optional Chaining in TypeScript & VS Code](https://itnext.io/javascript-optional-chaining-just-arrived-in-vs-code-87d8a0036a0d)
-User
