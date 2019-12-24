@@ -4,7 +4,7 @@
 1. Javascript
     1. [Node.js](./node/README.md)
     1. [Typescript](./ts/README.md)
-
+1. [Linux](./linux/README.md)
 
 ### External Content/Courses ###
 1. [Frontend-Masters](./courses/README.md)
