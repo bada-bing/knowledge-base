@@ -1,4 +1,5 @@
 The section about linux
+- Here should go material from both the book about linux and bash scripting and from the edX course "Introduction to Linux"
 
 # Important Questions
 - Distinction between "home" and "root" dir
