@@ -1,0 +1,30 @@
+Functional Programming
+
+  - Functions as First-Class Objects
+    - functions as variables/constants
+    - unless you want to use "this" state, always use arrow functions
+  - Pure Functions (Without Side Effects)
+    - Since this is not really possible, the goal is to separate what can be pure from impure code (which produces side-effects, e.g., database management)
+  - High-Order Functions (HOF)
+    - take other functions as parameters
+    - can either return new function or some other result based on the function passed as input
+    - e.g., map, filter, reduce
+    - e.g., measuring time
+    - check HOF that Lodash provides
+      - check .memoize for memoization (caching of results of expensive calculations)
+      - try example yourself[https://levelup.gitconnected.com/understanding-functional-programming-in-javascript-a-complete-guide-e85ed13b42c8](https://levelup.gitconnected.com/understanding-functional-programming-in-javascript-a-complete-guide-e85ed13b42c8) [search in the text for memoization]
+  - Work Declaratively (and this way avoid loops)
+    - reduce, map, forEach, filter, find, every, some
+  - Function Composition
+    - Ideally, functions should be small. They should be doing only one thing and they should do it well.
+    - Function Composition - making the result of one function be the parameter of the next one
+    - Lodash provides pipeline function
+      - _.flow() or fp.pipeline ([link](https://github.com/lodash/lodash/wiki/FP-Guide))
+    - Composing is alternative to pipeline
+      - order of parameters is inverted (right to left, last function in pipeline is here the first one)
+    - For both Pipeline and Composing it is required that these functions are to be unary (one argument) by default.
+      - Currying is a simple way to transform non-unary functions to work in unary form
+        - Lodash has a method for this, but still it is slightly confusing
+        - Currying is useful when params come in order
+      - Alternative to currying is Partial Application
+        - it does not need to have unary parameter
