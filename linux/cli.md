@@ -31,11 +31,25 @@ Alternatives to grep (better for searching code):
 - ack, ag, ripgrep
 - zgrep: grep for gzip files [gzip command](https://www.geeksforgeeks.org/gzip-command-linux/)
 
-1. sed [Stream Editor]
+2. sed [Stream Editor]
   - Used for string manipulation using regex
   - ```sed options 'command' file```
     - command: e.g, - ```s/<PATTERN>/<REPLACEMENT>/<FLAGS>``` (s - *substitute*)
     e.g., cat readme.md | sed 's/apple/XXXX/gi'
+      's' - the s at the beginning of the pattern is specific to PERL, SED and VIM and specifies that we are performing substitution
+      Flags:
+      - g - global
+      - i - (case)-insensitive
+      - m - treat strings as multiple lines
+      - s - treat string as a single line
+
   - meta-characters if no flag is specified, need to be escaped
     - "+" needs to be escaped like this "\+" (and ? as well \? )
     - interestingly, "*" don't need to be escaped e.g., "ap*le" (will match&replace apple and apppppple)
+  - How to use sed
+    - ```echo 'hello beep boop' ``` | sed 's/b..p/XXXX/g
+
+		CAPTURE GROUPS - https://stackoverflow.com/questions/4609949/what-does-1-in-sed-do
+
+		(External) Flag -i (not part of the pattern)
+		"sed -i" does the inline substitution of a file (changes and saves automatically for you)
