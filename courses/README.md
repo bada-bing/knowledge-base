@@ -26,17 +26,18 @@ The Summary of the Courses that take my attention. Most of them are from Fronten
 2. [JS: The Recent Parts - Kyle Simpson](./js-recent-parts.md)
 3. [Advanced Vue - Evan You](./advanced-vue.md)
 4. [Networking and Streams - James Halliday, Substack](./networking-streams.md)
-5. [Digging Into Node.js - Kyle Simpson](https://frontendmasters.com/courses/digging-into-node/)
-    - Code needs to be downloaded, there is no GitHub repo
+5. [Digging Into Node.js - Kyle Simpson](./digging-into-node.md)
 6. [Introduction to Bash, VIM, & RegEx - James Halliday, Substack](./unix-vim-regex.md) [probably done, but double-check]
 7. [Functional-Light JS, v3 - Kyle Simpson](./functional-light-js.md)
 8. [Asynchronous Programming in JS (with Rx.js Observables)](./intro-to-async.md)
 9. [Git In-depth - Nina Zakharenko](./git-in-depth.md)
-11. [Introduction to Vue.js](./intro-to-vue.md)
+12. [EdX Linux](./linux-edx.md)
+13. [Hardcore Functional Programming in JavaScript, v2 - Brian Lonsdorf](./hardcore-js-v2.md)
 
 ### Done
 1. [Introduction to Vue.js](./intro-to-vue.md)
 2. [VS Code can do that - Burke Holland](./vscode-can-do-that) & [VS Code - Mike North](./vscode-can-do-that)
+3. [Introduction to Vue.js](./intro-to-vue.md)
 
 ### To-Do
 1. [The Hart Parts of Servers & Node.js](https://frontendmasters.com/courses/servers-node-js/)

@@ -1,12 +1,12 @@
 [slides and resources](https://github.com/sdras/intro-to-vue)
+[slides](https://slides.com/sdrasner/intro-to-vue-7?token=u9qUgRsW) # pass should be `!vue!`
 [Intro to Vue](https://frontendmasters.com/courses/vue/)
 
-Conventions & Best-Practices:
+⭐ Essentialy, the Web Frameworks such as Vue compile HTML and populate with the data which is specified in JS framework
+
+❗ Conventions & Best-Practices:
 	- How to name components: kebab-case
 	- Rest API Consumption - Ajax Requests: Axios
-
-
-essentialy, thes Webe Frameworks such as Vue compile HTML and populate with the data which is specified in JS framework
 
 Vue Important Topics
 - [Virtual DOM](https://bitsofco.de/understanding-the-virtual-dom/)
@@ -19,28 +19,14 @@ Vue Important Topics
 
 - Directives are put on the elements in HTML markup (e.g., v-on)
 - you can create custom directives (each directive has 5 hooks)
-- v-model: 2-way binding, i.e., creates the relation between data in the instance/component and a form input (to dynamically update values)
-  - [Modifiers](https://vuejs.org/v2/guide/syntax.html#Modifiers)
-    - used for directives such as v-on and v-model (e.g., prevent (event.preventDefault))
-  - v-model.*trim* will strip any leading or trailing whitespace from the bound string
-  - v-model.*nubmer* will change strings to number inputs
-  - v-mode.*bind* ???
-  - v-model.lazy="some_property"
-    - the some_property is not updated on every change (every key stroke) but it is updated when we lose focus from the input (when we change focus to the other input or part of the screen)
-- v-bind: ":" (dynamic binding)
-  - v-model is essentially the same as:
-  - ```
-    <input
-      v-bind:value="some_model"
-      v-on:input="some_model = $event.target.value"
-      ...
-    />
-    ```
-    - [SO diff v-model and v-bind](https://stackoverflow.com/questions/42260233/vue-js-difference-between-v-model-and-v-bind)
-      - essentially, v-bind is one way binding (from vue-framework to html) and v-model is 2-way binding
-- v-on: "@" (opposite way of binding than v-bind, binds to events from HTML to vue-framework)
-  - the event-handlers receive automatically as a parameter event e which triggered them
-  - you can have multiple bindings on one element
+
+## Model binding
+- `v-bind`: dynamic (one-way) binding (shorthand version `:`)
+- [SO diff v-model and v-bind](https://stackoverflow.com/questions/42260233/vue-js-difference-between-v-model-and-v-bind)
+  - essentially, v-bind is one way binding (from vue-framework to html) and v-model is 2-way binding
+- `v-on`: opposite of `v-bind`, binds events from HTML to vue-framework (shorthand version `@`)
+  - the event-handlers receive automatically as a parameter event `e` which triggered them
+  - multiple bindings on one element are allowed
   - ```
     <div v-on="
       click  : onClick,
@@ -48,81 +34,106 @@ Vue Important Topics
       keyDown: onKeydown
     ">
     </div>```
-  - you can use modifiers to change default behavior: e.g.,
+  - use modifiers to change default behavior: e.g.,
     - `@click.once` this event will be triggered once
     - `@mousemove.stop` is comparable to `e.stopPropagation()`
     - `@mousemove.prevent` is comparable to `e.preventDefault()`
     - `@submit.prevent` will no longer reload page on submission
     - `@click.native` to listen to native events in DOM
-- List Rendering:
+- `v-model`: 2-way binding,
+  - i.e., creates the relation between data in the (Vue) instance/component and a (HTML) form input (to dynamically update values)
+  - v-model is essentially the same as:
+  - ```html
+    <input
+      v-bind:value="some_model"
+      v-on:input="some_model = $event.target.value"
+      ...
+    />
+    ```
+- [Modifiers](https://vuejs.org/v2/guide/syntax.html#Modifiers) of directives, e.g., for v-on and v-model
+  - e.g., prevent for `event.preventDefault`
+  - v-model.*trim* will strip any leading or trailing whitespace from the bound string
+  - v-model.*nubmer* will change strings to number inputs
+  - v-model.*bind* ???
+  - v-model.lazy="some_property"
+    - `<input v-model.lazy="some_property"/>`
+    - the some_property is not updated on every change (every key stroke) but it is updated when we lose focus from the input (when we change focus to the other input or part of the screen)
+
+## List Rendering
   - v-for
   - [Array Change Detection](https://vuejs.org/v2/guide/list.html#Array-Change-Detection)
-- Conditional Rendering:
-  - v-if/v-show
+
+## Conditional Rendering
   - v-if/v-else/v-else-if
+  - v-if/v-show
+  - ❗ `v-if` has higher toggle costs while `v-show` has higher initial render costs. So prefer `v-show` if you need to toggle something very often, and prefer `v-if` if the condition is unlikely to change at runtime
   - [Controlling Reusable Elements with key](https://vuejs.org/v2/guide/conditional.html#Controlling-Reusable-Elements-with-key)
-  - v-if has higher toggle costs while v-show has higher initial render costs. So prefer v-show if you need to toggle something very often, and prefer v-if if the condition is unlikely to change at runtime
+    - e.g., reusing same input element for different use-cases
 - ❓ v-html - for strings that have html which need to be rendered
 - v-pre (prints out the inner text exactly as it is (including code), good for docs)
   - skip compiling for raw content, can boost performance
   - ❓ you can use <pre> tag for that directive
-- v-once (only renders one the content)
+- v-once (only once renders the content)
 
 # Instance Methods, Computed, Watchers, Data
 [link](http://slides.com/sdrasner/intro-to-vue-2?token=502n2b7V)
-- Methods: bound to Vue instance/component (can be accessed in directives (in HTML/templates))
-  - have access to the component/instance through `this`
-  - typically the main goal is to invoke them from v-on directives
-- Computed: calculations that are cached and updated only when needed, i.e., **dependencies change**
-  - computed should be used as property (in place of a data) - it is a different view on some data
-  - computed run only when a dep has changed/ methods run whenever an update occurs (essentially everytime when render function is called)
+- **Methods**: bound to Vue instance/component; can be accessed in directives (in HTML/templates)
+  - have the access to the component/instance through `this` keyword
+  - ❗ usually, the main goal is to invoke them from `v-on` directives
+- **Computed**: calculations that are cached and updated only when needed, i.e., **when dependencies change**
+  - computed should be used as property (in place of `data`); they provide a different view on some data
+  - `computed` run only when a dep has changed | `methods` run whenever an update occurs (i.e., everytime when `render` function is called)
+  - A computed property will only re-evaluate its value when some of its reactive dependencies have changed.
   - computed by default have only getters (but you can define setters if necessary)
-  - A computed property will only re-evaluate when some of its reactive dependencies have changed.
-- Watchers (& Vue's Reactivity System)
-  - watch - $watch (the callback will be called when the certain property changes)
+- [**Watchers**](https://vuejs.org/v2/guide/computed.html) & Vue's Reactivity System
+  - watch - $watch (the callback will be called when the related property changes)
     - [How to watch deep-data structures in Vue](https://michaelnthiessen.com/how-to-watch-nested-data-vue/)
-    - [VueJS DOC Computed](https://vuejs.org/v2/guide/computed.html)
   - **Reactive Programming** - programming with asynchronous data streams
     - Stream - a sequence of **ongoing events ordered in time** on which you can attach **hooks** to observe it
     - When we use **reactive premises** for building apps, this means that **it is very easy to update state in reaction to events**
-  - ⭐[IMPORTANT]⭐ [The Intro to Reactive Programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
-  - In Vue reactivity is based on getters/setters (I think it belongs to native JS, check **object.define** API )
+    - ⭐[The Intro to Reactive Programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
+  - In Vue reactivity is based on getters/setters, i.e., JS `Object.define` API
     - https://vuejs.org/v2/guide/reactivity.html
     - https://www.monterail.com/blog/2016/how-to-build-a-reactive-engine-in-javascript-part-1-observable-objects
     - Reactivity is based on "push"
       - React is not reactive in that sense, since it is using "pull" and not "push"
-  - How Vue works
-    - the framwork goes through defined properties and converts them
-    - Vue can not detect at later points properties addition/deletion so we need to keep track on them in dedicated objects
-      - e.g., data:
-      - ```{
-        some_property
-      }```
-    - ⭐ The process:
-      - Each component has a watcher instance
-      - The properties touched by watcher during the render are registered as dependencies
+
+# How Vue works
+  - the framwork goes through defined properties and converts them to be reactive (using `Object.define()`)
+  - Vue can not detect at later points properties addition/deletion so we need to keep track on them in dedicated objects
+    - e.g., data:
+    ```js
+    {
+      some_property
+    }
+    ```
+  - ⭐ The process:
+    - Each component has a watcher instance
+    - The properties touched by watcher during the render are registered as dependencies
       - When the setter is triggered, it lets the watcher know, and causes the component to re-render.
   - The Vue instance is the middleman between DOM and business logic
     - watchers update DOM only when necessary
       - accessing DOM is not perfomrant as executing JS
-      - therefore we use virtual DOM
-        - which is a copy of DOM which exists in JS
-      - and instead of rerendering whole DOM it will only update differencies
+      - therefore we use virtual DOM, which is a copy of DOM which exists in JS
+      - instead of rerendering the whole DOM it will only update differencies
+
 # Components
 [link](http://slides.com/sdrasner/intro-to-vue-3?token=LwIVIblm)
 [Vue DOC - Components](https://vuejs.org/v2/guide/components.html)
-Vue uses HTML-based template syntax to bind the Vue instance to DOM
-- templates are optional (layer above render functions (which also support JSX syntax))
+⭐ Vue uses HTML-based template syntax to bind the Vue instance to DOM
+- templates are optional; layer above `render` functions (which also support JSX syntax)
 
-Component - a collection of elements encapsulated into a group that can be accessed through one single element
-- [Vue doc - Component Registration](https://vuejs.org/v2/guide/components-registration.html)
-  - Globally (across whole Vue instance) vs Locally Registering Components, Filters, Mixins, etc…
-    - Globally: `Vue.component('tag_name', Object)`
-    - Locally (inside of a certain component): `components: {...}`
+Component - a collection of elements encapsulated into a group that can be accessed through one single interface
+- [Component Registration](https://vuejs.org/v2/guide/components-registration.html) - Globally vs Locally
+    - Globally (across whole Vue instance) - `Vue.component('tag_name', Object)`
+    - Locally (inside of a certain component) - `components: {...}`
+    - both approaches can be used for Components, Filters, Mixins, etc…
+- ❗ If a component and the Vue instance are in the same file, you don't need to register it (check example below)
 - Each component has its own isolated scope
   - therefore, data must be a function `data() { return { text="miki" } }`
 - CamelCase is converted to kebab-case:
-  - `props: ['booleanValue']` vs `<some-component :boolean-value='booleanValue'></some-component>
+  - `props: ['booleanValue']` vs `<some-component :boolean-value='booleanValue'></some-component>`
+- **EXAMPLE_1**: The following example includes HTML and JS:
 ```javascript
   Vue.component('child', {
     props: {text: {
@@ -142,22 +153,12 @@ Component - a collection of elements encapsulated into a group that can be acces
     }
   })
 ```
-& html:
 ```html
 <div id="app">
   <child :text="message"></child>
 </div>
 ```
-## [Instance Properties](https://vuejs.org/v2/api/#Instance-Properties)
-* ! note ! If component and this Vue instance are in the same file, you don't need to register it
-- Props: used to pass the data from the parent to child components/elements (1-way communication)
-  - properties passed from the parent
-  - i.e., placeholder of a component which is managed/filled by a parent
-  - when props is a type of Object or Array it needs to return value from a function
-  - if you would use props without ":" (v-bind) essentially you are providing a static value to the component which receives that props
-    - <child text="3"></child>
-  - therefore, you use v-bind (:) to dynamically bind props to data on the parent
-
+## Dynamic Rendering/Loading of Components
 - `<component :is="">` : dynamically determine which component to load
 - you can use it statically like this: <li is='individual-comment'>
 	- uses binding with :is
@@ -169,17 +170,22 @@ Component - a collection of elements encapsulated into a group that can be acces
 				- in that case the component instead of destroyed lifecycle hook it has new hooks
 					- deactivated and activated
 
+# [Instance Properties](https://vuejs.org/v2/api/#Instance-Properties)
+- **Props**: used to pass the data (i.e., properties) from the parent to child components/elements (1-way communication)
+  - ❓ when props is a type of `Object` or `Array` it needs to return value from a function
+  - if you use props without `:` (v-bind) essentially you are providing a static value to the component which receives that props
+    - `<child text="3"></child>`
+  - therefore, you use v-bind (:) to dynamically bind props to data on the parent
 
-
-opposite way of communication to props is emitting/communicating events
-- $emit - the child is reporting it's activity to the parent
+- **Events** - opposite way of communication to props is emitting/communicating events
+- $emit - the child is reporting it's activity to the parent (like props 1-way communication, just in the other direction)
   - in child: `this.$emit('my-event', eventValue, eventValueTwo);`
   - in parent: <template> ... <child @my-event='customEventHandler'> ... <template>
 - [Custom Events](https://vuejs.org/v2/guide/components-custom-events.html)
-  - always use kebab-case for event names
+  - ❗ always use kebab-case for event names
 - [Programmatic Event Listeners](https://vuejs.org/v2/guide/components-edge-cases.html#Programmatic-Event-Listeners)
 
-slots - you can use slots to customize the child components from the outside
+- **Slots** - use them to customize the child components from the outside
   - parent provides some implementation details to the child in the parts which are labeled as slots
   - in child: `<slot name='headerinfo'></slot>`
   - in parent: `<h1 slot="headerinfo">This populates the headerinfo slot</h1>`
@@ -191,64 +197,55 @@ slots - you can use slots to customize the child components from the outside
 	- https://adamwathan.me/the-trick-to-understanding-scoped-slots-in-vuejs/
 	- https://alligator.io/vuejs/scoped-component-slots/
 
-there is something called keep-alive ... not sure what it does and why it is important
+- Lifecycle Hooks: https://scotch.io/tutorials/demystifying-vue-lifecycle-methods
 
-Forms
-	- Input modifiers
-		- <input v-model.lazy="some_property"/>
-		- the some_property is not updated on every change (every key stroke) but it is updated when we lose focus from the input (when we change focus to the other input or part of the screen)
-	- [VeeValidate](https://logaretm.github.io/vee-validate/) - to validate the input of HTML input fields and Vue Components
-	- [Vue Form validation with Vuelidate](https://vuejsdevelopers.com/2018/08/27/vue-js-form-handling-vuelidate/)
-
+# Forms
+- [VeeValidate](https://logaretm.github.io/vee-validate/) - to validate the input of HTML input fields and Vue Components
+- [Vue Form validation with Vuelidate](https://vuejsdevelopers.com/2018/08/27/vue-js-form-handling-vuelidate/)
 
 # Vue CLI & Nuxt
 
-2 Versions of Vue.js
-	1. has included compiler
-	2. without included compiler - with VUE CLI
-		- templates are compiled during the build process
-		- [@vue.cli Guide](https://cli.vuejs.org/guide/)
+2 Versions of Vue.js:
+1. has included compiler
+2. without included compiler - with VUE CLI [@vue.cli Guide](https://cli.vuejs.org/guide/)
+- templates are compiled during the build process
 - Build Processes (Vue CLI - layer above webpack) which enables us to use features loike ES6, SCSS...
   - Built on top of webpack and webpack-dev-server
-  - and it enables pre-compilation (and with it VUE files - single file templates)
+  - enables pre-compilation (and with it VUE files - single file templates)
   - enables lazy load and async (not to load everything at startup)
   - server-side rendering, code-splitting, performance metrics, ...
   - different versions (i.e., build vs prod versions)
 
-Base Configuration for a Vue CLI 3 project includes webpack and Babel
-	- also installs yorkie, used for Git hooks (based on gitHooks field in package.json)
+Base Configuration for a Vue CLI 3 project includes `webpack` and `Babel`
+- and `yorkie`, used for Git hooks (based on gitHooks field in package.json)
 
-CLI Plugins
-	- npm packages that provide optional features to Vue CLI projects (e.g., Babel, ESLint...)
-	- vue-cli-service  binary automatically resolves and loads all plugins listed in the package.json file.
-	- official plugins start with "@vue/cli-plugin-"
-		- e.g., Typescript, PWA, Vuex, Vue Router, ESLint, Unit testing
-	- community plugins start with "vue-cli-plugin-"
+## CLI Plugins
+- npm packages that provide optional features to Vue CLI projects (e.g., Babel, ESLint...)
+- `vue-cli-service`  binary automatically resolves and loads all plugins listed in the package.json file
+- official plugins start with `@vue/cli-plugin-`
+  - e.g., Typescript, PWA, Vuex, Vue Router, ESLint, Unit testing
+- community plugins start with "vue-cli-plugin-"
 
-
-  in single file templates in style tag you can specify:
+- in single file templates in `style` tag you can specify:
   ```<style scoped></style>``` to apply the styles only to that component
 
 - Important Commands:
-  vue create	create a new project
-  vue add some-plugin	add plugins to existing project
-  vue serve	same as "npm run serve"
-  vue build	same as "npm run build"
-  vue-cli-service build	○ produces a production-ready bundle in the dist/ directory, with minification for JS/CSS/HTML and auto vendor chunk splitting for better caching.
-  vue inspect
-  vue ui	use GUI
+  `vue create`	create a new project
+  `vue add some-plugin`	add plugins to existing project
+  `vue serve`	same as "npm run serve"
+  `vue build`	same as "npm run build"
+  - `vue-cli-service build`	produces a production-ready bundle in the `dist/` directory
+    - with minification for JS/CSS/HTML and auto vendor chunk splitting for better caching
+  `vue inspect`
+  `vue ui` use GUI
 
-[Modes and ENV Variables](https://cli.vuejs.org/guide/mode-and-env.html#modes)
-- When running vue-cli-service, environment variables are loaded from corresponding files
-	- Then NODE_ENV will determine the primary mode your app is running in - development, production or test - and consequently, what kind of webpack config will be created.
+- [Modes and ENV Variables](https://cli.vuejs.org/guide/mode-and-env.html#modes)
 - Most important Environment Variables
 	1. VUE_APP_*
 	2. NODE_ENV
 	3. BASE_URL
-
-
-- Lifecycle Hooks
-- https://scotch.io/tutorials/demystifying-vue-lifecycle-methods
+- When running vue-cli-service, environment variables are loaded from corresponding files
+	- Then `NODE_ENV` will determine the primary mode your app is running in - `development`, `production` or `test` - and consequently, what kind of webpack config will be created.
 
 Nuxt - provides:
 - Automatic Code Splitting
@@ -258,7 +255,6 @@ Nuxt - provides:
 - ES6/7 Transpilation
 - ❓ Hot reloading in Development, Pre-processors, Write Vue files...
 
-
 Skipping Animations for now...
 http://slides.com/sdrasner/intro-to-vue-5?token=5zRhIuNg
 https://slides.com/sdrasner/animating-vue-35/
@@ -267,7 +263,7 @@ https://slides.com/sdrasner/animating-vue-35/
 - **mixins** sharing the common part between different components (functionality, data, props)
 - Mixins is the part of the code which we can embed into our components
 	- e.g., we can embed data and computed and props... but we can also embed lifecycle methods
-	- Vue tries to merge both its own unique stuff of the component and the stuff from mixins
+	- Vue tries to merge both its own stuff of the component and the stuff from mixins
 		- e.g., it executes both lifecycle hooks from the mixin and the one from the component
   - allow to encapsulate one piece of functionality so that you can use it in different components in the application
   - mixins should be pure (as much as possible be written using FP paradigm)
@@ -280,16 +276,14 @@ https://slides.com/sdrasner/animating-vue-35/
       - therefore you should use plugins, check in You's course on Vue about that
     - https://vuejs.org/v2/guide/plugins.html
 
-- **filters** (they are not replacement for methods, computed or watchers)
-  - filters DO NOT transform the data! just transform what the user sees!
-  - as everything you can register them globally and locally
-    - globally: `Vue.filter(...)`
-    - locally: `filters: { filterName(value) { return ...}}`
+- **filters** transform what the user sees (they DO NOT transform the data!)
+  - they are not replacement for methods, computed or watchers
+  - as other stuff you can register them globally and locally
+    - globally: `Vue.filter(...)` | locally: `filters: { filterName(value) { return ...}}`
   - used in moustache-templates like this `{{ data | filter }}`
     - you can chain them `{{ data | filter1 | filter2 }}` or pass arguments `{{ data | filter(arg1, arg2) }}`
   - Filters are rerun on every single update, so better is to use **computed** for values like these that should be cached
-  - It is often better to use computed property instead of filters
-		- because of performance reasons (it doesnt know when to run filter, so it runs it always, while computed property are only runned when change into the base property (computed property is changed based on base property)
+		- computed are better because of performance reasons (Vue doesnt know when to run filter, so it runs it always, while computed property are only runned when change into the base property (computed property is changed based on base property)
  - https://scotch.io/tutorials/how-to-create-filters-in-vuejs-with-examples
 
 - **custom-directives**
@@ -324,7 +318,7 @@ Vuex is plugin and as every plugin requires:
 In **store.js** file
   ```javascript
   import Vue from 'vue';
-  import Vue from 'vue';
+  import Vuex from 'vuex';
   Vue.use(Vuex);
   ```
 
@@ -343,11 +337,10 @@ Vuex store has:
   * This can be very helpful if you need to perform a few different mutations at once in a particular order, or reach out to a server.
   * https://stackoverflow.com/questions/39299042/vuex-action-vs-mutations
 
-
 Mutations vs Actions
 - Actions commit Mutations
 - Actions can contain asynchronous operations (an api call which result will be commited in a mutation)
-- Mutations are intended to be synchronous pure functions
+- Mutations are intended to be **synchronous pure functions**
 	- to receive input only via their payload and not to produce side effects elsewhere.
   	- ⭐ While actions get a **full context** to work with, mutations only have the **state and the payload**
   	- i.e., they should perform their job without request to getters
@@ -358,9 +351,7 @@ Benefits of Actions
   - Actions can be scoped to a module, both when dispatching them and also in the context they have available
   - can be intercepted via `subscribeAction` API
   - Actions are promised by default, in much the same way as any async function is
-
-Traceability
-- Using the Vue devtools, it is possible to see a clear chronology of mutations applied to the single global state.
+- Traceability - with Vue devtools, it is possible to see a clear chronology of mutations applied to the single global state.
 
 On the component, we would use **computed** for getters and methods to call actions (using dispatch) and mutations (using commit)
 ```javascript
@@ -380,7 +371,6 @@ methods: {
 ```
 
 When working with actions we need to pass in the context (contains store, getters, ...)
-
 ```javascript
 actions: {
   increment (context) {
@@ -396,7 +386,7 @@ actions: {
   }
 }
 ```
-in methods of a component actions are called like this:
+in methods of a component `actions` are called like this:
 ```javascript
 methods: {
   asyncIncrement() {
@@ -413,24 +403,16 @@ actions: {
   }
 }
 ```
-
-you can check something in Vuex called mapActions ... to map mutations to actions...
+you can check something in Vuex called `mapActions` - to map mutations to actions
 
 Once you finish everything check following articles:
-https://alligator.io/vuejs/common-gotchas/
 https://alligator.io/vuejs/typescript-class-components/
 https://www.freecodecamp.org/news/common-mistakes-to-avoid-while-working-with-vue-js-10e0b130925b/
-https://dev.to/rolanddoda/8-secrets-vue-developers-must-know-5la
 https://vuejsdevelopers.com/2018/06/18/vue-components-play-nicely/
 https://michaelnthiessen.com/26-time-saving-tips/
 
-
 Alternatives to Vue
-Alternatives:
 	- [React vs Angular](https://www.sitepoint.com/react-vs-angular/)
 	- [React, redux and JS architecture](https://jrsinclair.com/articles/2018/react-redux-javascript-architecture/#fn:2)
 		- React (and Vue) separates state from View
 Redux seprates what happened from what we do about it
-
-Reactive programming is a programming with asynchronous data streams
-- the goal is to easily update the state in reaction to events
