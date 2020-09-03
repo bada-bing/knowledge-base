@@ -4,14 +4,15 @@
 # Important Shortcuts
 - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
 
-shift + shift searches everywhere for a file
-ctrl + shift + e search for recently opened files
-❓ctrl + shift + f seachers a text in the path (use the module filter)
-ctrl + f12 searches variable/function in file
-alt + f7 list variable/function usages
-ctrl + click jumps to variable/function declaration
-ctrl + alt + H - call hierarchy
-
+| Command           |                                        Description |
+| ----------------- | -------------------------------------------------: |
+| shift + shift     |                     searches everywhere for a file |
+| ctrl + f12        |                 searches variable/function in file |
+| alt + f7          |                      list variable/function usages |
+| ctrl + shift  + e |                   search for recently opened files |
+| ctrl + shift + f  | seaches a text in the path (use the module filter) |
+| ctrl + click      |            jumps to  variable/function declaration |
+| ctrl + alt  + H   |                                   - call hierarchy |
 
 # Autoscroll to/from source
 - in file explorer (In Intellij Idea) right click on the settings icon and select `Always Select Opened File`
@@ -32,3 +33,4 @@ when you click on File
 - [How to share your IDE Settings](https://www.jetbrains.com/help/phpstorm/sharing-your-ide-settings.html)
 - [21 plugins for IDEA](https://blog.codota.com/21-best-intellij-plugins-for-2019-100-free/)
 - [gittoolbox](https://plugins.jetbrains.com/plugin/7499-gittoolbox) - similar to Git Lens in VS Code
+- [how to debug source-tree](https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000788510-When-debugging-WebPack-step-by-step-how-to-switch-to-original-source-instead-of-the-bundled-file-)

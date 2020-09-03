@@ -7,8 +7,8 @@ https://github.com/30-seconds/30-seconds-of-code [Snippets]
 https://www.barbarianmeetscoding.com/blog/2019/02/08/boost-your-coding-fu-with-vscode-and-vim
 
 In VS Code I covered most of the article … I came to code [formatting](https://github.com/microsoft/vscode-tips-and-tricks#code-formatting)
-
 - [customize](./code.customize.md)
+- [shortcuts](./code.shortcuts.md)
 - [linting](./code.linting.md.md)
 - [debugging](#debugging)
 
@@ -28,24 +28,24 @@ In VS Code I covered most of the article … I came to code [formatting](https:/
   - You can filter problems by type ('errors', 'warnings') or text matching
 
 - Fuzzy File Navigation (Ctrl + p) - Omnibox
-  - When you write the name of the File and press Ctrl + Enter, it will open the File in the Side Window (for Side-by-side Editing)
-    - then you can switch between open side editors using (Ctrl + 1; Ctrl + 2)
+  - `Ctrl + Enter` (instead of `Enter`) will open the File in the Side Window
+  - switch between open side editors using (Ctrl + 1; Ctrl + 2)
+    - editor is not tab (editor is like pane in tmux)
   - By adding ":", you can go directly to a specific line.
   - Symbol navigation: By adding "@:", you can activate Symbol Search (for that file).
     - Symbol Search is used for Function & Classes Names, rules, ...
   - Symbol navigation: By adding "#", you can activate Symbol Search throughout the whole project (workspace).
 - F1 works in the same way as ctrl + shift + p (Opens Command Palette)
 
+Create language associations for files that aren't detected accurately (for example, many config files are JSON).
 In Settings you can create File Associations for File Extensions that are not detected accurately (for example, many config files are in JSON):
 ```json
 "file. associations" : {
  ".database" : "json"
  }
 ```
-Create language associations for files that aren't detected accurately (for example, many config files are JSON).
 
 - [How to integrate git-bash](https://dev.to/simbo1905/how-to-integrate-git-bash-with-visual-studio-code-on-windows-3217)
-
 
 # Facts
 Both VS Code and Chrome DEV Tools have **Logpoints** (apart from Breakpoints and Conditional Breakpoints)
@@ -62,47 +62,11 @@ Both VS Code and Chrome DEV Tools have **Logpoints** (apart from Breakpoints and
     - By using updateImageSize in command in VS Code, emmet can find the source of the image and automatically populate these attributes
 - Workspace specific files are in .vscode. For example, tasks.json for the Task Runner and launch.json for the debugger.
 - VS Codelens - They're interactions that allow context aware actions for portions of your code base.
-# Shortcuts
-
-| Command                    |                                      Description |
-| -------------------------- | -----------------------------------------------: |
-| alt + shift + j            |     Join selected lines (my own custom shortcut) |
-| ctrl + alt + up/down arrow |            Add Cursor for Multi-Cursor Selection |
-| shift + ctrl + ö           |                          Activate (New) Terminal |
-| ctrl + j                   | Open Terminal Panel (Does not open new terminal) |
-| ctrl + backspace           |                               Deletes whole word |
-| ctrl + k -> z              |                                         Zen Mode |
-| ctrl + k -> f              |       Close current Workspace (Folder Structure) |
-| ctrl + shift + f           |                                Search Everywhere |
-| Ctrl + r                   |                                    Reload Window |
-| Ctrl + 1/2/3               |                     Switch between Editors/Panes |
-| Alt + 1/2/3                |                             Switch between Files |
-| ctrl + PG UP/DOWN          |                    Move through Open Editor Tabs |
-| ctrl + F -> Alt + Enter    |                      select all found occurences |
-| Ctrl + Shift + V           |                                 Preview Markdown |
-| Ctrl + Shift + Space       |                       Preview Function Signature |
 
 ### Moving and Line Management
 You don't need to highlight a WHOLE line in VS Code to cut it (or copy it)
 	- it is enough to press Ctrl + C (or Ctrl + X)
 	- It works the same way in **IntelliJ**
-
-
-| Command                     |          Description |
-| --------------------------- | -------------------: |
-| alt + up/down arrow         |           move lines |
-| alt + shift + up/down arrow |            copy line |
-| ctrl + shift + k            |          delete line |
-| ctrl + l                    |          select line |
-| alt + shift + left/right    |     Expand Selection |
-| ctrl + u                    | Undo Cursor Position |
-
-### Code & Development
-| Command   |      Description |
-| --------- | ---------------: |
-| F12       | Go to Definition |
-| Alt + F12 |  Peek Definition |
-
 
 # Debugging
 https://scotch.io/tutorials/debugging-javascript-in-google-chrome-and-visual-studio-code

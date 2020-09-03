@@ -1,8 +1,14 @@
+[Section about VS Code has nice structure; use that as an influence for this (and all future sections on tools)]
+
+# Settings
+Chrome Automate Deleting of History
+`Settings > Advanced > Privacy and Security > Content`
+	- Ads - Should be unchecked which reads as "Blocked on Sites that show intrusive or misleading ads"
+
+Option: DNS over HTTPS (tako nesto)
+
 [how browsers work](./browsers.how-work.md)
 [dev tools](./browsers.dev_tools.panels.md)
-
-https://send.firefox.com/
-  simple private file sharing (with files which destroy themselves after some time)
 
 - Parametrized Bookmarks in Firefox
   - alternative in Chrome is called Search Engines: chrome://settings/searchEngines
@@ -11,7 +17,8 @@ Extensions:
 - CodeCopy - https://github.com/zenorocha/codecopy
 - Octotree,
 - Octolinker - https://chrome.google.com/webstore/detail/octolinker/jlmafbaeoofdegohdhinkhilhclaklkp/related
-- Toby Mini, OneTab, Daily 2.0
+- Toby Mini❓, OneTab, Daily 2.0
+- [SurfingKeys](https://github.com/brookhong/Surfingkeys)
 
 1. Chrome/Chromium/Brave
    ❗CHECK❗ - https://www.freecodecamp.org/news/awesome-chrome-dev-tools-tips-and-tricks/
@@ -33,11 +40,18 @@ Skripte mozes da blackboxujes I iz call-stack-a (desni klik na neku od funkcija 
           - Enable QUIC protocol (HTTP/3)
           - Enable a Temporary Filesystem for Incognito Browsing
 
-Some websites block content for anyone using Incognito mode, which can become frustrating when you try to visit their webpage. With the Filesystem API in Incognito flag, it creates a temporary filesystem in memory, which is usually disabled in Incognito mode. This makes websites think you’re using a regular instance of Chrome, unblocking the content. After the window closes, if anything was saved during your session, it’s deleted immediately. To prevent websites from polling your browser to check if you’re using Incognito, enable the Filesystem API in Incognito flag:
+⭐To prevent websites from polling your browser to check if you’re using Incognito, enable the Filesystem API in Incognito flag:
+Some websites block content for anyone using Incognito mode, which can become frustrating when you try to visit their webpage.
+With the Filesystem API in Incognito flag, it creates a temporary filesystem in memory, which is usually disabled in Incognito mode.
+This makes websites think you’re using a regular instance of Chrome, unblocking the content.
+After the window closes, if anything was saved during your session, it’s deleted immediately.
 
 2. Firefox
-In Mozilla they are about to introduce time-travelling debugger
+- In Mozilla they are about to introduce time-travelling debugger
 [Firefox replay](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/WebReplay)
+
+- https://send.firefox.com/
+  simple private file sharing (with files which destroy themselves after some time)
 
 Knowledge
 - The [Source Code of Chromium](https://cs.chromium.org/chromium/src/net/base/mime_sniffer.cc?sq=package:chromium&dr=CS&l=5)
