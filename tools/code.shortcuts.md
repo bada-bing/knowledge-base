@@ -43,13 +43,37 @@ File and Folder navigation in File Explorer
 | enter            |                                                 open file |
 | Ctrl + 0         |                                         Focus on Explorer |
 | Ctrl + 1         |                                           Focus on Editor |
+| Ctrl + r         |                          Like ctrl +p just for workspaces |
 
 ### Code & Development
-| Command   |      Description |
-| --------- | ---------------: |
-| F12       | Go to Definition |
-| Alt + F12 |  Peek Definition |
+| Command            |       Description |
+| ------------------ | ----------------: |
+| F12                |  Go to Definition |
+| Alt + F12          |   Peek Definition |
+| `Ctrl + Shift + ß` |   1. Code Folding |
+| `Ctrl + Shift + ´` | 2. Code Unfolding |
 
 When using `ctrl + d`; use `ctrl + k` to skip occurence (I found better solution for that, check what `ctrl+alt+d` does)
-- `Ctrl + Shift + ß`	1. Code Folding
-- `Ctrl + Shift + ´`	2. Code Unfolding
+
+
+|                 Action                  |       Shortcut        |
+| :-------------------------------------: | :-------------------: |
+|             Toggle Sidebar              |        Ctrl+B         |
+|         Jumpt to Previous File          |     Ctrl + P -> P     |
+|          Set Focus to Sidebar           |       Ctrl + 0        |
+|           Set Focus to Editor           |       Ctrl + 1        |
+|           Open Explorer View            |   Ctrl + Shift + E    |
+|             Open Debug View             |   Ctrl + Shift + D    |
+| Fold HTML/Code (*does not work always*) |   Ctrl + Shift + ß    |
+|          Comment out the Line           |        Ctrl+#         |
+|             Symbol Browser              | Ctrl+P -> insert "@"  |
+|        Groupped Symbols Browser         | Ctrl+P -> insert "@:" |
+|              Code Actions               |        Ctrl+.         |
+|       See Available Code Actions        |   Ctrl + Shift + R    |
+
+|    (Multiple Cursors) Action    |    Shortcut     |
+| :-----------------------------: | :-------------: |
+|         Add new Cursor          |     Ctrl+D      |
+|        Skip one Instance        |  Ctrl+ K -> D   |
+|      Select all Instances       | Ctrl+ Shift + L |
+| ⭐(Peak into) See all References |   Shift + F12   |
