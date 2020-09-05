@@ -1,14 +1,3 @@
-## Symbolic Links
-Create symbolic link: `ln -s file1 file3`
-`ls -li file1 file3`
-
-Symbolic links take no extra space on the filesystem (unless their names are very long).
-They can easily be modified to point to different places.
-An easy way to create a shortcut from your home directory to long pathnames is to create a symbolic link.
-
-Unlike hard links, soft links can point to objects even on different filesystems, partitions, and/or disks and other media, which may or may not be currently available or even exist.
-In the case where the link does not point to a currently available or existing object, you obtain a dangling link.
-
 # File Descriptors
 When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or stdin), standard output (standard out or stdout) and standard error (or stderr).
 
@@ -85,121 +74,6 @@ Most often, these aliases are placed in your `~/.bashrc` file so they are availa
 - `alias` with no arguments will list currently defined aliases.
 - `unalias` removes an alias.
 
-# User Administration
-**Users** have Unique ID (uid); integer; for normal users uid is > 1000
-**Groups** are used for organizing users - collections of accounts with shared permissions; every group has gid
-- `/etc/group` - shows a list of groups and their memebers
-- default group has the same id as user's id
-- can be found in /etc/passwd and /etc/group
-- every user belongs to the default or primary group
-- Groups are used to establish a set of users who have common interests for the purposes of access rights, privileges, and security considerations.
-- Permissions on various files and dirs can be modified at the group level
-
-To manage users on the system:
-- `useradd` and `userdel` to add and del users
-- `groupadd` and `groupdel` to add/del groups
-- `id` - gives basic info about the user
-
-- The `root` - superuser account
-- you can use the `sudo` feature to assign more limited privileges to user accounts:
-* Only on a temporary basis
-* Only for a specific subset of commands.
-
-When assigning elevated privileges, you can use the command `su` (switch or substitute user) to launch a new shell running as another user (you must type the password of the user you are becoming). Most often, this other user is root, and the new shell allows the use of elevated privileges until it is exited. It is **almost always** a bad (dangerous for both security and stability) practice to use `su` to become root. Resulting errors can include deletion of vital files from the system and security breaches.
-
-Granting privileges using `sudo` is less dangerous and is preferred. By default, sudo must be enabled on a per-user basis. However, some distributions (such as Ubuntu) enable it by default for at least one main user, or give this as an installation option.
-
-To execute just one command with root privilege type `sudo <command>`. When the command is complete, you will return to being a normal unprivileged user.
-
-sudo configuration files are stored in the `/etc/sudoers` file and in the `/etc/sudoers.d/` directory. By default, the `sudoers.d` directory is empty.
-
-By convention, most systems are set up so that the **root user** has a pound sign (`#`) as their prompt. Normal user will have `$`
-
-# File Ownership & File Permissions
-Files have three kinds of permissions: read (r), write (w), execute (x).
-These are generally represented as in `rwx`. These permissions affect three groups of owners: user/owner (u), group (g), and others (o).
-
-As a result, you have the following three groups of three permissions:
-rwx: rwx: rwx
- u:   g:   o
-
-- `chown` - change user ownership of a file or directory
-- `chgrp`  - change group ownership
-- `chmod` - change the permissions on the file, which can be done separately for owner, group and the rest of the world (often named as other)
-
-This is done with a simple algorithm, and a single digit suffices to specify all three permission bits for each entity. This digit is the sum of:
-- 4 if read permission is desired     [3rd bit]
-- 2 if write permission is desired    [2nd bit]
-- 1 if execute permission is desired. [1st bit]
-Thus, 7 means read/write/execute, 6 means read/write, and 5 means read/execute.
-When you apply this to the chmod command, you have to give three digits for each degree of freedom, such as in:
-
-- `$ chmod 755 somefile` - change permissions
-- `ls -l somefile` - check permissions
-
-# Summary
-The root account has full access to the system. It is never sensible to grant full root access to a user.
-You can assign root privileges to regular user accounts on a temporary basis using the `sudo` command.
-The shell program (bash) uses multiple startup files to create the user environment. Each file affects the interactive environment in a different way.
-`/etc/profile` provides the global settings.
-Advantages of startup files include that they customize the user's prompt, set the user's terminal type, set the command-line shortcuts and aliases, and set the default text editor, etc.
-An environment variable is a character string that contains data used by one or more applications. The built-in shell variables can be customized to suit your requirements.
-The history command recalls a list of previous commands, which can be edited and recycled.
-In Linux, various keyboard shortcuts can be used at the command prompt instead of long actual commands.
-You can customize commands by creating aliases. Adding an alias to ˜/.bashrc will make it available for other shells.
-File permissions can be changed by typing chmod permissions filename.
-File ownership is changed by typing chown owner filename.
-File group ownership is changed by typing chgrp group filename.
-
-# Regular Expressions and Search Patterns
-Regular expressions are text strings used for matching a specific pattern, or to search for a specific location, such as the start or end of a line or a word. Regular expressions can contain both normal characters or so-called meta-characters, such as * and $.
-
-Many text editors and utilities such as vi, sed, awk, find and grep work extensively with regular expressions. Some of the popular computer languages that use regular expressions include Perl, Python and Ruby. It can get rather complicated and there are whole books written about regular expressions; thus, we will do no more than skim the surface here.
-
-These regular expressions are different from the wildcards (or meta-characters) used in filename matching in command shells such as bash (which were covered in Chapter 7: Command-Line Operations). The table lists search patterns and their usage.
-.(dot)	Match any single character
-a|z	Match a or z
-$	Match end of string
-^	Match beginning of string
-"*"	Match preceding item 0 or more times
-
-strings is used to extract all printable character strings found in the file or files given as arguments. It is useful in locating human-readable content embedded in binary files; for text files one can just use grep.
-
-For example, to search for the string my_string in a spreadsheet:
-
-$ strings book1.xls | grep my_string
-
-text utilities that you can use for performing various actions on your Linux files, such as changing the case of letters or determining the count of words, lines, and characters in a file.
-
-**tr**
-The tr utility is used to translate specified characters into other characters or to delete them. The general syntax is as follows:
-
-$ tr [options] set1 [set2]
-
-The items in the square brackets are optional. tr requires at least one argument and accepts a maximum of two. The first, designated set1 in the example, lists the characters in the text to be replaced or removed. The second, set2, lists the characters that are to be substituted for the characters listed in the first argument. Sometimes these sets need to be surrounded by apostrophes (or single-quotes (')) in order to have the shell ignore that they mean something special to the shell. It is usually safe (and may be required) to use the single-quotes around each of the sets as you will see in the examples below.
-
-For example, suppose you have a file named city containing several lines of text in mixed case. To translate all lower case characters to upper case, at the command prompt type cat city | tr a-z A-Z and press the Enter key.
-
-Command	Usage
-$ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ	Convert lower case to upper case
-$ tr '{}' '()' < inputfile > outputfile	Translate braces into parenthesis
-$ echo "This is for testing" | tr [:space:] '\t'	Translate white-space to tabs
-$ echo "This   is   for    testing" | tr -s [:space:]
-Squeeze repetition of characters using -s
-$ echo "the geek stuff" | tr -d 't'	Delete specified characters using -d option
-$ echo "my username is 432234" | tr -cd [:digit:]	Complement the sets using -c option
-$ tr -cd [:print:] < file.txt	Remove all non-printable character from a file
-$ tr -s '\n' ' ' < file.txt	Join all the lines in a file into a single line
-
-tee takes the output from any command, and, while sending it to standard output, it also saves it to a file. In other words, it "tees" the output stream from the command: one stream is displayed on the standard output and the other is saved to a file.
-
-For example, to list the contents of a directory on the screen and save the output to a file, at the command prompt type ls -l | tee newfile and press the Enter key.
-
-cut
-cut is used for manipulating column-based files and is designed to extract specific columns. The default column separator is the tab character. A different delimiter can be given as a command option.
-
-For example, to display the third column delimited by a blank space, at the command prompt type ls -l | cut -d" " -f3 and press the Enter key.
-
 # Creating Temporary Files and Directories
 
 Temporary files (and directories) are meant to store data for a short time.
@@ -266,3 +140,18 @@ pdftk joins and splits PDFs; pulls single pages from a file; encrypts and decryp
 pdfinfo can extract information about PDF documents.
 flpsed can add data to a PostScript document.
 pdfmod is a simple application with a graphical interface that you can use to modify PDF documents.
+
+[From missing-semester]
+
+# 7. Debugging and Profiling
+[lecture notes](https://missing.csail.mit.edu/2020/debugging-profiling/)
+
+[perf - monitoring and analysis tool](https://www.tecmint.com/perf-performance-monitoring-and-analysis-tool-for-linux/)
+
+# 8. Metaprogramming
+Make is a build tool. It can be really useful for simplifying some common tasks.
+It takes into account dependencies (eg, if some deps are not changed it will not execute that part of the code)
+- main file is `makefile`
+- https://linoxide.com/how-tos/linux-make-command-examples/
+- [SO | why-use-make-over-a-shell-script](https://stackoverflow.com/questions/3798562/why-use-make-over-a-shell-script)
+  - [SO | the case agains make](https://unix.stackexchange.com/questions/496793/script-or-makefile-to-automate-new-user-creation/497601#497601)

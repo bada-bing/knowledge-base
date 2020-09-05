@@ -1,10 +1,30 @@
 Based on the ed-x course and the missing-semester lecture
 (get the link of the missing-semester lecture)
 
-# Shell/Bash scripting
+# Shell Scripting [From the missing semester]
 
-`foo=bar` define variable
-`$foo` access variable
+globbing essentially refers to expansions (you can use * and ? and {} and any of their combination)
+- all files with .sh expansion for example `ls *.sh`
+- `ls project?` will expand to a single character (* is any no of characters)
+- `gpg image.jpg image.png` same as `gpg image.{jpg,png}`
+  - once again NO SPACES (spaces are reserved for separating arguments)
+  - `touch foo{1,2,10}`
+
+`diff` tool to compare for us diffs between folders or files
+
+source is really important
+- sometime if you run directly the script... some side effect like cd or setting env variables will not work ,but will work if you load that file into the current shell using `source`
+
+`tldr` install it... it is like tldr version of man pages
+- there is also VS Code plugin for that
+
+# Shell/Bash scripting
+- an example of bash script is stored in gist missing_semester
+
+`foo=bar` - define variable
+`$foo` - access variable
+- if you use strings as value of env var use quotes (eg, VAR1="Hellow World")
+`foo=$(mcd)` - store output of command mcd into variable foo
 
 ## Execute Scripts
 `chmod +x hello.sh` makes the file executable by all users.
@@ -16,10 +36,19 @@ All shell scripts generate a **return value** upon finishing execution, which ca
 Return values permit a process to monitor the exit state of another process, often in a parent-child relationship.
 Knowing how the process terminates enables taking any appropriate steps which are necessary or contingent on success or failure.
 
+- space is reserved for seprating arguments! (ie, NO space between environmental var and its value)
+
+- double qoutes string does string interpolation: `echo "value is $foo"`
+- ❗ single quotes do not do that... they print the content as an actual string
+
 ## Exit Codes (Or Signals)
 Eg, execute `ls` on a file that exists as well as one that does not, the **return value** is stored in the **environment variable represented by $?**?
 `echo $?`
 Applications often translate these return values into meaningful messages easily understood by the user.
+
+- `true` has 0 exit code... `false` has 1 exit code
+`0` - everything fine
+`1` - there was a problem
 
 ## Language Constructs
 
@@ -27,23 +56,24 @@ Applications often translate these return values into meaningful messages easily
 `\`	Used at the end of a line to indicate continuation on to the next line
 `;`	Used to interpret what follows as a new command to be executed next
 - eg, `make ; make install ; make clean`
+- use to concatenate commands (it is not like pipe since it does not pass the output, just concatenation of their execution)
 `$`	Indicates what follows is an environment variable
+
+`echo $(date)` ❓
 
 ### I/O Redirection
 https://www.techrepublic.com/article/how-to-run-multiple-linux-commands-from-one-line/
 
-I/O redirection
-
 if the command do_something reads from stdin we can change its input source
-do_something < input-file
+`do_something < input-file`
 
 if you want to change the target of the output and to send it to a file
-do_something > output-file
+`do_something > output-file`
 
 if you want to change the target of the stderr and to send it to a file
- do_something 2> error-file
+ `do_something 2> error-file`
 
- do_something >& all-output-file
+ `do_something >& all-output-file`
  (prints both stdout and stderr to same file)
 
  on the other hands pipes "|" are used to make output of one command the input of the other command
@@ -88,6 +118,9 @@ https://thoughtbot.com/blog/input-output-redirection-in-the-shell
 - In this case, you proceed until something succeeds and then you stop executing any further steps
 
 There are other special characters and character combinations and constructs that scripts understand, such as `{..}`, `[..]`,`$((...))`
+
+`falls || echo "Ooops fail"` ("or" operator)
+`falls && echo "Ooops fail"` ("and" operator)
 
 ### Bash Built-In Commands
 In addition, bash has many built-in commands, which can only be used to display the output within a terminal shell or shell script.

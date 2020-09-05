@@ -45,78 +45,6 @@ The command df -Th (disk-free) will display information about mounted filesystem
 
 The most common network filesystem is named simply NFS (the Network Filesystem). This allows the users to log in to different computers, yet still have access to the same files and resources.
 
-# Directories
-The `/bin` directory contains executable binaries, essential commands used to boot the system or in single-user mode, and essential commands required by all system users, such as `cat, cp, ls, mv, ps, rm`.
-Likewise, the `/sbin` directory is intended for essential binaries related to system administration, such as fsck and shutdown. To view a list of these programs, type:  `ls /bin /sbin`
-Commands that are not essential (theoretically) for the system to boot or operate in single-user mode are placed in the /usr/bin and /usr/sbin directories
-istorically, this was done so /usr could be mounted as a separate filesystem that could be mounted at a later stage of system startup or even over a network. However, nowadays most find this distinction is obsolete. In fact, many distributions have been discovered to be unable to boot with this separation, as this modality had not been used or tested for a long time.
-Thus, on some of the newest Linux distributions /usr/bin and /bin are actually just symbolically linked together, as are /usr/sbin and /sbin.
-
-about directories
-/bin - binaries
-/lib - libraries
-/etc - config files
-/home - home dir of each user
-/tmp - temporary dir
-/var - files that change over time (lock files for package managers, log files, files that keep track about process ids)
-/dev - devices
-/sys -
-/opt - some about 3rd party sw (not so important)
-
-The `/dev` directory contains device nodes, a type of pseudo-file used by most hardware and software devices, except for network devices.
-Contains entries which are created by the udev system, which creates and manages device nodes on Linux, creating them dynamically when devices are found. The /dev directory contains items such as:
-`/dev/sda1` (first partition on the first hard disk)
-`/dev/lp1` (second printer)
-`/dev/random` (a source of random numbers).
-`/dev/null` ❓
-
-The `/var` directory contains files that are expected to change in size and content as the system is running (var stands for variable), such as the entries in the following directories:
-
-- System log files: /var/log
-- Packages and database files: /var/lib
-- Print queues: /var/spool
-- Temporary files: /var/tmp.
-- Network services directories such as /var/ftp (the FTP service) and /var/www (the HTTP web service) are also found under /var.
-
-The `/etc` directory is the home for system (system-wide) configuration files.
-It contains no binary programs, although there are some executable scripts. For example, /etc/resolv.conf tells the system where to go on the network to obtain host name to IP address mappings (DNS). Files like passwd, shadow and group for managing user accounts are found in the /etc directory.
-User-specific configuration files are always found under their home directory.
-
-The `/boot` directory contains the few essential files needed to boot the system.
-For every alternative kernel installed on the system there are **four files**:
-
- - vmlinuz The compressed Linux kernel, required for booting.
- - initramfs The initial ram filesystem, required for booting, sometimes called initrd, not initramfs.
- - config The kernel configuration file, only used for debugging and bookkeeping.
- - System.map Kernel symbol table, only used for debugging.
-Each of these files has a kernel version appended to its name.
-
-The Grand Unified Bootloader (GRUB) files such as `/boot/grub/grub.conf` or /boot/grub2/grub2.cfg are also found under the /boot directory.
-
-The `/lib` contains libraries (common code shared by applications and needed for them to run) for the essential programs in /bin and /sbin. These library filenames either start with ld or lib. For example, /lib/libncurses.so.5.9.
-
-One often uses removable media, such as USB drives, CDs and DVDs.
-To make the material accessible through the regular filesystem, it has to be mounted at a convenient location.
-Most Linux systems are configured so any removable media are automatically mounted when the system notices something has been plugged in.
-
-While historically this was done under the `/media` directory, modern Linux distributions place these mount points under the `/run` directory.
-For example, a USB pen drive with a label "myusbdrive" for a user name "student" would be mounted at `/run/media/student/myusbdrive`.
-
-The `/mnt` directory has been used since the early days of UNIX for temporarily mounting filesystems.
-These can be those on removable media, but more often might be network filesystems with NFS, which are not normally mounted.
-Or these can be temporary partitions, or so-called loopback filesystems, which are files which pretend to be partitions.
-
-The `/usr` directory tree contains theoretically non-essential programs and scripts (in the sense that they should not be needed to initially boot the system) and has at least the following sub-directories:
-
-`/usr/include`	Header files used to compile applications
-`/usr/lib`	Libraries for programs in /usr/bin and /usr/sbin
-`/usr/lib64`	64-bit libraries for 64-bit programs in /usr/bin and /usr/sbin
-`/usr/sbin`	Non-essential system binaries, such as system daemons
-`/usr/share`	Shared data used by applications, generally architecture-independent
-`/usr/src`	Source code, usually for the Linux kernel
-`/usr/local`	Data and programs specific to the local machine. Subdirectories include bin, sbin, lib, share, include, etc.
-`/usr/bin`	This is the primary directory of executable commands on the system
-
 # Back Up
 `rsync` is more efficient than `cp`, because it checks if the file being copied already exists.
 The contents of sourcefile will be copied to destinationfile.
@@ -137,47 +65,6 @@ One often synchronizes the destination directory tree with the origin, using the
 
 A good combination of options is shown in:
 `$ rsync --progress -avrxH  --delete sourcedir destdir`
-
-# Compression
-Linux uses a number of methods to perform this compression, including:
-
-Command	Usage
-`gzip`	The most frequently used Linux compression utility
-`bzip2`	Produces files significantly smaller than those produced by gzip
-`xz`	The most space-efficient compression utility used in Linux
-`zip`	Is often required to examine and decompress archives from other operating systems
-
-These techniques vary in the efficiency of the compression (how much space is saved) and in how long they take to compress; generally, the more efficient techniques take longer. Decompression time does not vary as much across different methods.
-
-In addition, the tar utility is often used to group files in an archive and then compress the whole archive at once.
-
-`gzip` is the most often used Linux compression utility. It compresses very well and is very fast. The following table provides some usage examples:
-- `gzip *`	Compresses all files in the current directory; each file is compressed and renamed with a .gz extension
-- `gzip -r projectX`	Compresses all files in the projectX directory, along with all files in all of the directories under projectX
-- `gunzip foo`	De-compresses foo found in the file foo.gz. Under the hood, the gunzip command is actually the same as gzip –d
-
-`bzip2` has a syntax that is similar to gzip but it uses a different compression algorithm and produces significantly smaller files, at the price of taking a longer time to do its work. Thus, it is more likely to be used to compress larger files.
-
-Examples of common usage are also similar to gzip:
-- `bzip2 *`	Compresses all of the files in the current directory and replaces each file with a file renamed with a .bz2 extension
-- `bunzip2 *.bz2`	Decompresses all of the files with an extension of .bz2 in the current directory. Under the hood, bunzip2 is the same as calling bzip2 -d
-
-`xz` is the most space efficient compression utility used in Linux and is now used to store archives of the Linux kernel. Once again, it trades a slower compression speed for an even higher compression ratio.
-
-`xz *`	Compresses all of the files in the current directory and replaces each file with one with a .xz extension
-`xz foo`	Compresses the file foo into foo.xz using the default compression level (-6), and removes foo if compression succeeds
-`xz -dk bar.xz`	Decompresses bar.xz into bar and does not remove bar.xz even if decompression is successful
-`xz -dcf a.txt b.txt.xz > abcd.txt`	Decompresses a mix of compressed and uncompressed files to standard output, using a single command
-`$ xz -d *.xz`	Decompresses the files compressed using xz
-
-`zip` is often required to examine and decompress archives from Windows. It is a legacy program.
-- `zip backup *`	Compresses all files in the current directory and places them in the file backup.zip
-- `zip -r backup.zip` ~	Archives your login directory (~) and all files and directories under it in the file backup.zip
-- `unzip backup.zip`	Extracts all files in the file backup.zip and places them in the current directory
-
-[DONT experiment with following command as it can erase HDD]
-The `dd` program is very useful for making copies of raw disk space. For example, to back up your Master Boot Record (MBR) (the first 512-byte sector on the disk that contains a table describing the partitions on that disk), you might type:
-- `$ dd if=/dev/sda of=sda.mbr bs=512 count=1`
 
 ## Symbolic Links
 - `ln -s`
