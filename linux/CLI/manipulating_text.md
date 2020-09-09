@@ -1,3 +1,4 @@
+# Manipulating Text Tools
 1. grep [Global RegEx Print]
    - search for patterns in file(s)
    - ```grep [flags] 'pattern' file```
@@ -30,7 +31,7 @@
 Alternatives to grep (better for searching code):
 - ack, ag, ripgrep
 - zgrep: grep for gzip files [gzip command](https://www.geeksforgeeks.org/gzip-command-linux/)
-
+- pgrep: https://linuxize.com/post/pgrep-command-in-linux/
 2. sed [Stream Editor]
   - Used for string manipulation using regex
   - ```sed options 'command' file```

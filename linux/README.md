@@ -1,13 +1,12 @@
 - [Useful Bash Commands](https://itnext.io/increase-developer-productivity-with-unix-bash-command-one-liners-2973bccd7600)
 - http://www.bashoneliners.com/oneliners/popular/?source=post_page-----2973bccd7600----------------------
 - https://quickleft.com/blog/command-line-tutorials-tips-tricks/
-- ❓[splash](https://www.producthunt.com/posts/splash-cli) - change background
 - https://itnext.io/increase-developer-productivity-with-unix-bash-command-one-liners-2973bccd7600
+- [gnome-walkpaper](https://extensions.gnome.org/extension/1200/walkpaper/) - - change background of workspaces
+  - [cross-platform alternative](https://github.com/hhannine/Superpaper)
 
 Sections
-[Configuration](./configuration.md)
-[CLI Tools](./cli.md)
-[CLI - Additional Tools](./cli.cli.additional_tools.md)
+[CLI Tools](./CLI/README.md.md)
 
 General OS Tips:
 - Increase mouse speed
@@ -19,9 +18,7 @@ General OS Tips:
 - [Other CLI tools](./additional_cli_tools.md)
 
 # Useful Commands to consider
-- tree (possibly needs to be installed)
-	- gives the tree structure of the directory
-- ping vs traceroute (traceroute gives the number and more details about hops to certain IP address)
+- ⭐❗❗❗Shortcuts: https://pop.system76.com/docs/keyboard-shortcuts/
 - Command substitution:
   `` `command` or `$(command)` ``
 - ``!! `` - run the last command
@@ -29,24 +26,37 @@ General OS Tips:
   - - ``sudo !! `` - run the last command with root user
 - **TIP**: Generate a 100mb random file:
 ```dd if=/dev/urandom of=ridiculously_large_file.txt bs=1048576 count=100```
+- which vs whereis (looks in a broader range of system directories)
+- https://www.networkworld.com/article/3453032/cleaning-up-with-apt-get.html
 
 1. Restart System
-   | Command | Linux | Windows (cmd/git-bash) |
-   | ------------ | ------------ | -------: |
-   | Restart| ```sudo reboot``` | ```shutdown //r``` |
-   | | ```sudo init 6``` ||
-   | | ```sudo shutdown -r now``` |  |
-   | Shutdown|  | ```shutdown //s``` |
+   | Command  | Linux                      | Windows (cmd/git-bash) |
+   | -------- | -------------------------- | ---------------------: |
+   | Restart  | ```sudo reboot```          |     ```shutdown //r``` |
+   |          | ```sudo init 6```          |                        |
+   |          | ```sudo shutdown -r now``` |                        |
+   | Shutdown |                            |     ```shutdown //s``` |
     - `//r` & `//s` is because we escape the first line or something like that
 
-3. Shell Keyboard Shortcuts
-   | Shortcut | Description |
-   | ------------ | -------: |
-   | CTRL + U | clears the input-line (prompt) |
-   | CTRL + K | clears the input-line (from the cursor to the end of the prompt) |
-   | CTRL + W | clears the last word/part/parameter (goes backwards) |
-   | CTRL + L | clears the screen (i.e., clear) |
-- When you are comfortable with these, check other commands in this [SO answer](https://askubuntu.com/questions/470966/shortcut-to-clear-command-line-terminal/471023#471023)
+  - Restart Graphical Desktop
+    - Stop it: sudo systemctl stop gdm (or sudo telinit 3)
+    - Restart it: sudo systemctl start gdm (or sudo telinit 5)
+
+
+
+## Cool Tips
+	2. "fc" - to fix a really long command which you messed up (opens the editor)
+	3. Create a super fast ram disk (this is temporary but it looks really cool)
+		- mkdir -p /mnt/ram
+		- mount -t tmpfs tmpfs /mnt/ram -o size=8192M
+	4. If you add the space in front of the command the command will not be added to the history
+		- " ls -l"
+	5. tunnel with ssh (local port 3337 -> remote host's 127.0.0.1 on port 6379)
+		- ssh -L 3337:127.0.0.1:6379 root@emkc.org -N
+	6. Quckly create folders
+		- mkdir -p folder/{sub1,sub2}/{sub1,sub2,sub3}
+	7. Exit terminal but leave all the (sub)processes running
+		- disown -a && exit
 
 # Other
 Standard Streams - stdin and stdout
@@ -57,27 +67,17 @@ Standard Streams - stdin and stdout
 	- This is how Node.js knows how to print content to stdout (console)
 - [Shell Special Parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html#Special-Parameters)
 
-- Globs
-	- a sequence of literal and wildcard characters used to match filepath
-	- [explaining globs](https://gulpjs.com/docs/en/getting-started/explaining-globs)
-	-  Opposite of wildcard character is literal character
-	- / - separator
-	- \\ - escape character
-		- 'glob_with_uncommon_\\*_character.js'
-			§ an example: star is here escaped so it is actual literal charcter
-	- Special Characters: ** (to include nested folders), ! (negative)
-
 - General Linux Convention: "#" in cmd prompt that means that you are logged in as root
 
-# Windows
-- How to open always an app on the same monitor all the time
-	Open the application, drag it to the screen you want it to open on, minimize it to half size (the middle square shape on the top far right - beside the X to close out the app or doc) and then close it out without maximizing it again.
-	From now on it will open on that screen, until you change it by repeating this process on a different screen.
-- print "path" variable in cmd: ```path```; in powershell: ```$env:path```
-- How to run powershell script (ps1): [SO Link](https://stackoverflow.com/questions/2035193/how-to-run-a-powershell-script/2035209)
-- [How to kill a service which is stuck at stopping](https://support.4it.com.au/article/how-to-kill-a-windows-service-which-is-stuck-at-stopping/)
-  - find PID of service:  sc queryex servicename
-  - shutdown service: taskkill /f /pid [PID]
-- Copying to Clipboard
-	in WSL you can do `clip.exe < ~/.ssh/some_file` or `cat ~/.ssh/some_file | clip.exe`
-- UELI is like the omnibox is MacOS
+Also worth knowing is the use of '!$' - ie:
+- `mkdir -p /path/to/new/dir`
+- `cd !$`
+- to go to previous directory, run `cd -`
+Will take you to the new dir. '!$' just means 'last argument in the last command'. Very useful and will save you bulk time.
+
+Shortcuts In File Manager:
+  | Shortcut          |                             Description |
+  | ----------------- | --------------------------------------: |
+  | CTRL-H            |                       show hidden files |
+  | CTRL-1 / CTRL - 2 | - Switch between Icons and List formats |
+  | CTRL-L            |   Location Bar in File Manager/ Browser |
