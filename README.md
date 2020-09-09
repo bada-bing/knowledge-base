@@ -25,3 +25,11 @@ Text/Content Shortcuts: **dir** -> directory
 		- by changing the port it gives you some small amount of increased security
 
 [if-python-is-interpreted-what-are-pyc-files](https://stackoverflow.com/questions/2998215/if-python-is-interpreted-what-are-pyc-files)
+
+{% hint style="info" %}
+Hello world
+{% endhint %}
+
+{% hint style="warning" %}
+Hello world
+{% endhint %}
