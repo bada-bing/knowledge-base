@@ -22,19 +22,12 @@ In VS Code I covered most of the article … I came to code [formatting](https:/
 - [linting](./code.linting.md.md)
 - [debugging](#debugging)
 
-- probably the next thing you should learn in VS Code is multi-cursor and how that works
-
 # Tips
-- In terminal you can write:
-  - ```code --diff <file1> <file2>``` to activate code's diff-checker editor
-    - in GUI: in File Explorer -> right click on the file -> "select for compare" and "compare with selected"
-    - or select 2 files and "compare selected"
+- CLI Commands:
+  - ```code --diff <file1> <file2>``` - code's diff-checker editor
+    - in GUI: in File Explorer -> right click on the file -> `select for compare` and `compare with selected`
+    - or select 2 files and `compare selected`
   - ```code -r ``` opens the code in the last recently used environment
-- In a similar way you can create bash-functions to import and export extensions:
-  - Bash script to export & import extensions
-  	- vscode_export() { code --list-extensions }
-  	- vscode_import() { cat "$1" | xargs -L 1 code --install-extension }
-- A lot of Git commands are available in VS Code (e.g., merge branch)
 
 - Use `F8` to Cycle through Problems
   - You can filter problems by type ('errors', 'warnings') or text matching
@@ -42,33 +35,20 @@ In VS Code I covered most of the article … I came to code [formatting](https:/
 - Fuzzy File Navigation (Ctrl + p) - Omnibox
   - `Ctrl + Enter` (instead of `Enter`) will open the File in the Side Window
   - switch between open side editors using (Ctrl + 1; Ctrl + 2)
-    - editor is not tab (editor is like pane in tmux)
+    - editor is NOT a tab (editor is like pane in tmux)
   - In command-palette `:` to go directly to a specific line.
   - Symbol navigation: By adding "@:", you can activate Symbol Search (for that file).
     - Symbol Search is used for Function & Classes Names, rules, ...
   - Symbol navigation: By adding "#", you can activate Symbol Search throughout the whole project (workspace).
 - F1 works in the same way as ctrl + shift + p (Opens Command Palette)
 
-CTRL - 0 - go to sidebar (so that you can move there)
-CTRL - 1 - go to the editor
-
-CTRL + P > CTRL + P - will bring you back to previous file
-
-Create language associations for files that aren't detected accurately (for example, many config files are JSON).
-In Settings you can create File Associations for File Extensions that are not detected accurately (for example, many config files are in JSON):
+- In Settings you can create language associations for File Extensions that are not detected accurately (eg, many config files are in JSON):
 ```json
 "file. associations" : {
  ".database" : "json"
  }
 ```
 
-- [How to integrate git-bash](https://dev.to/simbo1905/how-to-integrate-git-bash-with-visual-studio-code-on-windows-3217)
-
-# Facts
-Both VS Code and Chrome DEV Tools have **Logpoints** (apart from Breakpoints and Conditional Breakpoints)
-- they behave like "console.log" but you don't need to insert them into the code
-  - you can place them like the regular bookmark (you just need to select the line and make a right click and too choose Logpoint)
-- since they do not work if there is a syntax error, I am not sure if they are useful
 - [Preview Editors](https://github.com/Microsoft/vscode-docs/blob/vnext/release-notes/June_2016.md#preview-editors)
   - Files with *Tab Title written in Italics*
     - if open new file from this tab, the new opened file will overwrite the existing content of that tab
@@ -80,22 +60,22 @@ Both VS Code and Chrome DEV Tools have **Logpoints** (apart from Breakpoints and
 - Workspace specific files are in .vscode. For example, tasks.json for the Task Runner and launch.json for the debugger.
 - VS Codelens - They're interactions that allow context aware actions for portions of your code base.
 
-### Moving and Line Management
+- ⬇ Both VS Code and Chrome DEV Tools have **Logpoints** (apart from Breakpoints and Conditional Breakpoints)
+  - they behave like `console.log`, but they belong to the Editor itself and are never inserted into the source code.
+  - they do NOT work if there is a syntax error, and therefore are NOT that useful.
+
+## Navigation Moving and Line Management
 You don't need to highlight a WHOLE line in VS Code to cut it (or copy it)
 - it is enough to press `Ctrl + C` (or `Ctrl + X`)
 - It works the same way in **IntelliJ**
 
-## VS Code Navigation
-multiple cursors CTRL + D
-- if you want to skip one occurence CTRL + K
+## Search
+- ⭐ use regex to search
+  - use `ALT + ENTER` to select all occurences
 
-Search
-- you can also use regex to search
-- when it finds multiple matches you can use ALT + ENTER to select all occurences
-
-"@" opens symbol browser
-"@:" groups symbols into related segments (e.g., classes, methods, functions)
-"#" - cross-search (across different files)
+- `@` opens symbol browser
+- `@:` groups symbols into related segments (e.g., classes, methods, functions)
+- `#` cross-search (across different files)
 
 ## Go To
 - hold CTRL and when you click on something it will lead you to where it is defined
@@ -153,11 +133,10 @@ https://github.com/microsoft/vscode-recipes/tree/master/vuejs-cli
     - this is really helpful since you don't want to bother with native libraries and stop there at any point (e.g., Vue lib)
   - launch.json is the file in .vscode where you specify your debug configuration
 
-for launch configuration you can store your env variable into .env file
-and then specify the file in launch config using `envFile`: ...
+- for launch configuration store your env variable into `.env` file and then specify the file in launch config using `envFile`
 
 nodemon has also default configuration for debugging in VS Code
-- search for it when you setup launch.json
+- it is available as one of default options when you setup `launch.json`
 
 - there are compound configurations (to debug both backend and frontend at the same time) but do not find them that useful right now
     - if you feel the need at some point, invest more time into it, for now just skip it
@@ -234,7 +213,7 @@ Burke Holland uses Cosmos DB extension to communicate to Mongo DB (Cosmos DB is 
     - an example where this could be useful is if you run prettier and try to lint the code and to make as clickable links all the warnings and errors
 
 
-## Mardown
+## Markdown
 - [slides](https://github.com/mike-works/vscode-fundamentals/blob/master/docs/1_using/markdown.md)
 - you can use img tags (like in html) and give them a lot of options
   `<img src="vscode_icon.png" height=50 align=right vspace=20 />`

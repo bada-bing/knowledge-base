@@ -1,3 +1,7 @@
+`CTRL - 0` - go to sidebar (so that you can move there)
+`CTRL - 1` - go to the editor
+`CTRL + P > CTRL + P` - will bring you back to previous file
+
 # Shortcuts
 
 | Command                    |                                        Description |
@@ -33,7 +37,7 @@
 
 `ctrl + enter` is not equal to `enter` - you can be weherever in the current line and it will not bring any parts of the current line into the new line
 
-File and Folder navigation in File Explorer
+## File and Folder navigation in File Explorer
 | Command          |                                               Description |
 | ---------------- | --------------------------------------------------------: |
 | up/down arrow    | move between files/folders on the same level of hierarchy |
@@ -77,3 +81,7 @@ When using `ctrl + d`; use `ctrl + k` to skip occurence (I found better solution
 |        Skip one Instance        |  Ctrl+ K -> D   |
 |      Select all Instances       | Ctrl+ Shift + L |
 | ⭐(Peak into) See all References |   Shift + F12   |
+
+## VS Code Navigation
+multiple cursors `CTRL + D`
+- if you want to skip one occurence CTRL + K

@@ -32,6 +32,7 @@ Settings (UI) - in the background uses Azure's AI (when connected to the Interne
 - this mean that it will give it best to interpret your query and guess what you really want
 
 # Settings:
+- [How to integrate git-bash](https://dev.to/simbo1905/how-to-integrate-git-bash-with-visual-studio-code-on-windows-3217)
 
 ## List of Tweaks for VS Code (in Settings.json)
 - Turn off the Minimap
