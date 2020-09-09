@@ -27,9 +27,12 @@ Text/Content Shortcuts: **dir** -> directory
 [if-python-is-interpreted-what-are-pyc-files](https://stackoverflow.com/questions/2998215/if-python-is-interpreted-what-are-pyc-files)
 
 {% hint style="info" %}
-Hello world
+🧙‍♂️Hello world
 {% endhint %}
 
 {% hint style="warning" %}
 Hello world
 {% endhint %}
+
+Test YT Integration:
+https://www.youtube.com/watch?v=_HjToekoEMk
