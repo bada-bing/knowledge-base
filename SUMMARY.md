@@ -1,15 +1,16 @@
 # Summary​
 
-## Use headings to create page groups like this one​
+## Operating Systems
 
-* [Liber Primus](./README.md)
+* [Linux](./linux/README.md)
     * [Some child page](page1/page1-1.md)
     * [Some other child page](part1/page1-2.md)
 
-* [Second page's title](page2/README.md)
+* [Windows](./windows/README.md)
     * [Some child page](page2/page2-1.md)
     * [Some other child page](part2/page2-2.md)
 
-## A second-page group​
+## Tools
 
-* [Yet another page](another-page.md)
+* [Git](./git/README.md)
+* [General Section on Tools](./tools/README.md)
