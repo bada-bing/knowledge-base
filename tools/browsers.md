@@ -1,59 +1,58 @@
-[Section about VS Code has nice structure; use that as an influence for this (and all future sections on tools)]
-
-# Settings
-Chrome Automate Deleting of History
-`Settings > Advanced > Privacy and Security > Content`
-	- Ads - Should be unchecked which reads as "Blocked on Sites that show intrusive or misleading ads"
-
-Option: DNS over HTTPS (tako nesto)
-
 [how browsers work](./browsers.how-work.md)
 [dev tools](./browsers.dev_tools.panels.md)
 
-- Parametrized Bookmarks in Firefox
-  - alternative in Chrome is called Search Engines: chrome://settings/searchEngines
+# Goals (Requirements)
+1. Portability (Settings which are transferable)
+2. Security (Tools and Settings which promote the privacy and security)
+   1. this also includes how should I behave on the internet (and in general)
+# Common Settings (for all-browsers)
+# Browser Specific Settings
 
-Extensions:
+Profiles with common settings (synchronize my settings accross platforms)
+1. Mozilla Firefox ✔
+2. Brave
+3. Google Chrome ?
+   - Do I want this? and if yes, which account work or personal, and how to protect it
+
+# 1. Common Settings - What all BROWSERS should have in common
+
+# 1.1 Security
+1. DNS Over Https
+   - Only was able to enable it in Firefox: `General > Network Settings > Enable DNS over HTTPS`
+
+2. Disable Offer to save Password in Browser Use KeePass Instead
+- Chrome/Brave: `Offer to save Password`
+- Firefox: `Ask to save logins and passwords for websites`
+
+
+# 1.2. Search
+
+# 1. (Browser-Specific) Settings
+❓ Chrome Automate Deleting of History ❓
+
+## 2.1. Chrome/Chromium/Brave
+### 2.1.1. Extensions:
 - CodeCopy - https://github.com/zenorocha/codecopy
 - Octotree,
 - Octolinker - https://chrome.google.com/webstore/detail/octolinker/jlmafbaeoofdegohdhinkhilhclaklkp/related
 - Toby Mini❓, OneTab, Daily 2.0
 - [SurfingKeys](https://github.com/brookhong/Surfingkeys)
 
-1. Chrome/Chromium/Brave
-   ❗CHECK❗ - https://www.freecodecamp.org/news/awesome-chrome-dev-tools-tips-and-tricks/
-   1. DEV tools
-    - Ctrl + P (to launch Omnibox/Command Pallete)
-	- stuff like all the different tabs, go offline and online
-    - F1 - go to settings
-	- Permanent Blackboxing: u Blackboxing sekciji
-		- Check **"Blackbox Chrome Extension Scripts"**
-		- Ovde mozes da dodas sve fajlove koje ne zelis da vidis u stack trace-u I gde ne zelis da pauzira debuger… (webpack, …)
-Skripte mozes da blackboxujes I iz call-stack-a (desni klik na neku od funkcija iz call stacka) I onda "blackbox script"
-   2. Flags - ```chrome://flags```
-    		- Interesting Flags:
-      		- Global Media Controls - Play/Pause button for audio/video in Chrome
-          - Extensions Toolbar Menu - declutter extensions
-          - [Omnibox Suggestion Transparency Options](chrome://flags/#omnibox-suggestion-transparency-options)
-          - Enable Reader Mode
-          - Smooth Scrolling
-          - Enable QUIC protocol (HTTP/3)
-          - Enable a Temporary Filesystem for Incognito Browsing
+### 2.1.2. Flags - ```chrome://flags```
+- `Global Media Controls Picture-in-Picture` - Play/Pause button for audio/video in Chrome
+  - `chrome://flags/#global-media-controls-picture-in-picture`
+- Extensions Toolbar Menu - Declutter extensions
+  - `chrome://flags/#extensions-toolbar-menu`
+- [Omnibox Suggestion Transparency Options](chrome://flags/#omnibox-suggestion-transparency-options)
+- Enable Reader Mode
+- Smooth Scrolling
+- Enable QUIC protocol (HTTP/3)
 
-⭐To prevent websites from polling your browser to check if you’re using Incognito, enable the Filesystem API in Incognito flag:
-Some websites block content for anyone using Incognito mode, which can become frustrating when you try to visit their webpage.
-With the Filesystem API in Incognito flag, it creates a temporary filesystem in memory, which is usually disabled in Incognito mode.
-This makes websites think you’re using a regular instance of Chrome, unblocking the content.
-After the window closes, if anything was saved during your session, it’s deleted immediately.
+### 2.1.3 Brave
+- ❓❓What are the advantages of Brave? Should I continue using it?❓❓
 
-2. Firefox
-- In Mozilla they are about to introduce time-travelling debugger
-[Firefox replay](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/WebReplay)
+### 2.1.4. Google Chrome
+- `Settings > Privacy and Security > Site Settings > Content > Ads` should be unchecked (reads as "Blocked on Sites that show intrusive or misleading ads")
 
-- https://send.firefox.com/
-  simple private file sharing (with files which destroy themselves after some time)
+## 2.2. Firefox
 
-Knowledge
-- The [Source Code of Chromium](https://cs.chromium.org/chromium/src/net/base/mime_sniffer.cc?sq=package:chromium&dr=CS&l=5)
-- Web browsers have inside-implementation of sqlite
-	- this is probably how they are storing internal memory/data of webpages/sites

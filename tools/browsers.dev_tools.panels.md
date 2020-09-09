@@ -35,3 +35,19 @@ CSS and DOM elements
 	- regarding CSS, Computed tab shows the FINAL CSS rules
 	- when you are working with some colors (e.g., in CSS) these colors are always in a specific format (e.g., RGB)
 		○ you can change format by holding shift and clicking on the color (NOT ON THE COLOR CODE) where you want to change format (e.g., from hex to rgb)
+
+
+❗CHECK❗ - https://www.freecodecamp.org/news/awesome-chrome-dev-tools-tips-and-tricks/
+   1. DEV tools
+    - Ctrl + P (to launch Omnibox/Command Pallete)
+	- stuff like all the different tabs, go offline and online
+    - F1 - go to settings
+	- Permanent Blackboxing: u Blackboxing sekciji
+		- Check **"Blackbox Chrome Extension Scripts"**
+		- Ovde mozes da dodas sve fajlove koje ne zelis da vidis u stack trace-u I gde ne zelis da pauzira debuger… (webpack, …)
+Skripte mozes da blackboxujes I iz call-stack-a (desni klik na neku od funkcija iz call stacka) I onda "blackbox script"
+
+
+# Firefox Developer Tools
+- In Mozilla Firefox they are about to introduce time-travelling debugger
+[Firefox replay](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/WebReplay)

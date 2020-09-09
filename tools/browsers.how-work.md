@@ -1,3 +1,8 @@
+Knowledge
+- The [Source Code of Chromium](https://cs.chromium.org/chromium/src/net/base/mime_sniffer.cc?sq=package:chromium&dr=CS&l=5)
+- Web browsers have inside-implementation of sqlite
+	- this is probably how they are storing internal memory/data of webpages/sites
+
 [❓Need to distinguish what should be a theoretic knowledge (e.g., how browsers work) and what should be practical (e.g., extensions, shortcuts, ...)]
 Inside Look at Modern Browsers
 1. [Browser Architecture - Chrome](https://developers.google.com/web/updates/2018/09/inside-browser-part1)
