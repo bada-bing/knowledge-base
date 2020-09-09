@@ -34,5 +34,4 @@ Text/Content Shortcuts: **dir** -> directory
 Hello world
 {% endhint %}
 
-Test YT Integration:
 https://www.youtube.com/watch?v=_HjToekoEMk
