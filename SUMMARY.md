@@ -15,3 +15,12 @@
 
 * [Git](./git/README.md)
 * [General Section on Tools](./tools/README.md)
+
+## WIP Content
+* Javascript
+    * [Javascript](./js/README.md)
+    * [Node.js](./node/README.md)
+    * [Typescript](./ts/README.md)
+* [Important Computer Science Topics](./CS)
+  * [FP](cs/FP.md)
+  * [regex](cs/regex.md)
