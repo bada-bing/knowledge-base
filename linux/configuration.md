@@ -23,6 +23,14 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 plugins+=(zsh-nvm) # update this line to ~/.zshrc
 ```
+- Important plugins: zsh-autosuggestions & zsh-syntax-highlighting
+  1. [ZSH Documentation](http://zsh.sourceforge.net/Doc/Release/zsh_toc.html)
+   2. add these lines to ~/.zshrc:
+        ```
+        export EDITOR="code" # your favorite editor goes here
+        alias zc="$EDITOR ~/.zshrc"
+        ```
+
 
 1. Pre-requisites & Aesthetics
   - Install [Fira Code](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager)
