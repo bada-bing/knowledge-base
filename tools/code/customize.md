@@ -21,6 +21,7 @@ Community curated extension lists, such as [awesome-vscode](https://github.com/v
 ## Customization
 - Levels of Customization
   - Workspace ./.vscode/settings.json - [Workspace Customization](https://github.com/mike-works/vscode-fundamentals/blob/master/docs/2_customizing/workspace.md)
+    - Workspace specific files are in `.vscode`. E.g., `tasks.json` for the Task Runner and `launch.json` for the debugger.
   - User %APPDATA\Code\User\Settings.json (Windows)
   - User $HOME/.config/Code/User/Settings.json (Windows)
   - Defaults that ship with editor
@@ -28,16 +29,13 @@ Community curated extension lists, such as [awesome-vscode](https://github.com/v
 - pro tip: don't install many fonts (they all take space in the ram (all the time) - there is table with fonts which is loaded into ram)
 - you should start creating user snippets (and invest time learning ones which you already know)
 
-Settings (UI) - in the background uses Azure's AI (when connected to the Internet)
-- this mean that it will give it best to interpret your query and guess what you really want
+Settings (UI) - in the background uses **Azure's AI** (when connected to the Internet)
+- it will aim to give the best interpretation of your query and guess what you really want
 
-# Settings:
-- [How to integrate git-bash](https://dev.to/simbo1905/how-to-integrate-git-bash-with-visual-studio-code-on-windows-3217)
 
 ## List of Tweaks for VS Code (in Settings.json)
-- Turn off the Minimap
-- Move Sidebar Right
-- Hide Open Editors
+- *Instead of describing here settings, put comments in settings.js*
+- Cluster your settings.json (and desribe sections with comments)
 -
   - ❗ This list is temporary, the plan is to use `settings.json` as the documentation itself ❗
   - Sidebar on the right side - looks more intuitive
@@ -71,6 +69,13 @@ vscode can for different projects hide/exclude certain files
     "**/*.js": true
   }
 }
+```
+
+- In Settings you can create language associations for File Extensions that are not detected accurately (eg, many config files are in JSON):
+```json
+"file. associations" : {
+ ".database" : "json"
+ }
 ```
 
 # Extensions

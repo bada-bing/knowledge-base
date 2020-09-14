@@ -49,17 +49,6 @@
 | Ctrl + 1         |                                           Focus on Editor |
 | Ctrl + r         |                          Like ctrl +p just for workspaces |
 
-### Code & Development
-| Command            |       Description |
-| ------------------ | ----------------: |
-| F12                |  Go to Definition |
-| Alt + F12          |   Peek Definition |
-| `Ctrl + Shift + ß` |   1. Code Folding |
-| `Ctrl + Shift + ´` | 2. Code Unfolding |
-
-When using `ctrl + d`; use `ctrl + k` to skip occurence (I found better solution for that, check what `ctrl+alt+d` does)
-
-
 |                 Action                  |       Shortcut        |
 | :-------------------------------------: | :-------------------: |
 |             Toggle Sidebar              |        Ctrl+B         |
@@ -82,6 +71,4 @@ When using `ctrl + d`; use `ctrl + k` to skip occurence (I found better solution
 |      Select all Instances       | Ctrl+ Shift + L |
 | ⭐(Peak into) See all References |   Shift + F12   |
 
-## VS Code Navigation
-multiple cursors `CTRL + D`
-- if you want to skip one occurence CTRL + K
+When using `ctrl + d`; use `ctrl + k` to skip occurence (I found better solution for that, check what `ctrl+alt+d` does)
