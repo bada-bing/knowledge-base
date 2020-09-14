@@ -42,6 +42,27 @@ The Process of determining the method to invoke at runtime (rather than at compi
   - Arrow Functions do not have their own scope - they bind to lexical scope (that is why you don't use them as methods in objects)
   - For regular functions: this gets bound to the object the method is invoked on
 
+**WebPack** - Module Bundler
+By default, WebPack looks for the entry point default is "src/index.js" and that is where it starts its module bundling task
+[An annotated Webpack-4 config-for-frontend-web-development](https://nystudio107.com/blog/an-annotated-webpack-4-config-for-frontend-web-development)
+[Free WebPack book](https://survivejs.com/webpack/foreword/)
+Webpack is not a task runner, it is just processor of your files (it processes them by so called loaders and plugins) and it can be run (among other ways) by a task runner.
+  - Npm run is a task runner
+ - Webpack
+	- webpack is a static module bundler for modern JavaScript applications
+	- When webpack processes your application, it internally builds a [dependency graph](https://webpack.js.org/concepts/dependency-graph/) which maps every module your project needs and generates one or more bundles.
+	- Core Concepts
+		- Entry
+		- Output
+		- Loader
+			- Loaders allow webpack to process other types of files and convert them into valid modules that can be consumed by your application and added to the dependency graph.
+			- Loaders are used to transform certain types of modules
+		- Plugins
+			- plugins can be leveraged to perform a wider range of tasks like bundle optimization, asset management and injection of environment variables.
+
+
+- Image when imported with webpack (directly imported in JS code using "import" or "require") will have the type: base64
+
 ## How Node Works?
 What happens when you start a Node.js app? It creates:
 * 1 Process
@@ -177,3 +198,10 @@ sometime it helps to use "sudo"
 
 ## Tutorials
 * [Node.js - read large Files](https://itnext.io/using-node-js-to-read-really-really-large-files-pt-1-d2057fe76b33)
+
+* [Debouncing and Throttling Explained](https://css-tricks.com/debouncing-throttling-explained-examples/)
+  * recommended use loadsh
+	- techniques to limit how many times we allow a function to be executed over time
+	- Debounce - "group" multiple sequential calls in a single one (related to a sudden burst of events in the browser (like keystrokes))
+	- Throttle - we don't allow the function to be executed more than once every X milliseconds
+difference to debounce is that throttle guarantees the execution of the function regularly, at least every X milliseconds

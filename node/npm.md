@@ -1,12 +1,19 @@
-1. [MISC](#Misc)
-1. [About NPM dependencies](#Dependencies)
-1. [Frequently used commands](#Frequently_used_commands)
-1. [Useful NPM Modules](#Modules)
-1. [NPM Semantic Versioning](#SemVer)
+- [Misc](#misc)
+- [Dependencies](#dependencies)
+  - [Frequently_used_commands](#frequentlyusedcommands)
+- [Modules](#modules)
+  - [Express - Web Server](#express---web-server)
+  - [SemVer](#semver)
 
 ## Misc ##
 Sometimes in npm scripts (also saw it in webpack config) you need to pass arguments like "-- --arg1 val1"
 - the initial "--" signifies the end of the command operation and beginning of positional parameters
+
+- split2 module... sends streams so that each chunk is a line (or some similar delimiter)
+- each buffer is a single line
+
+- In bin dir of node modules are all executables which can be used in package.json scripts
+  - each have some binary cli executable
 
 
 ## Dependencies ##
@@ -29,10 +36,21 @@ npm list -g --depth=0
 	- check the globally installed package version
 
 npm link
-	- https://medium.com/dailyjs/how-to-use-npm-link-7375b6219557
+- [How to use npm link](https://medium.com/dailyjs/how-to-use-npm-link-7375b6219557)
+
+npm ci
+  - npm ci vs npm install
+    - npm ci adheres to package.lock.json
+    - it is not necessary anymore to add flag --save
+    - however, you need some flag if you dont want to save dependency
 
 
 ## Modules ##
+- How to check if the package is installed globally:
+  - ```npm list -g | grep grunt```
+  or
+  - ```npm list -g grunt```
+
 * https://github.com/nock/nock
 	- Mock HTTP server (for mocking responses)
 * Puppeeter and Chrome in Node.js
@@ -45,6 +63,7 @@ npm link
 * pm2 & forever - Process Managers to manage local development
 
 ### Express - Web Server ###
+- In general frameworks like express are only wrappers with many if statements around http server
 - Alternatives: Koa uses async/await “out of the box.” Express is callback-oriented.
 
 
