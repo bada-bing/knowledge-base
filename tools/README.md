@@ -6,6 +6,8 @@
 -  [Browsers](./browsers/README.md)
 -  [IDE - IntelliJ Idea](./idea.md)
 
+Similar to the approach in [VS Code](./code/README.md) section, define your expectations and requirements
+- (general guideline) aim to install only what is really necessary! Use as much as possible VMs and Docker Containers
 ## Common VS Code and IntelliJ Settings:
 - Theme: One Dark Pro
 - Font: Fira Code

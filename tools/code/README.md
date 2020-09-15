@@ -14,7 +14,12 @@ Requirements:
 2. Automatization
    1. Delegation of tasks to the tool (e.g., linting, formatting, text insertion)
    2. this is directly related to integration with other tools (e.g, linting tools, docker,...)
-3. Nice UI
+3. Having Disposable Environments
+   - Similar to other tools, it needs to be *disposable* (ie, it needs to work out of the box)
+     - settings should be synced
+     - where useful and applicable I should have the isolated environments (running environment together with the source code, e.g., node.js, java, mongo, zk)
+   - two relevant features: `Remote Containers` ans `Sync` functionality
+4. Nice UI
 
 How can the tool help me to satisfy the requirements:
 1. Features
