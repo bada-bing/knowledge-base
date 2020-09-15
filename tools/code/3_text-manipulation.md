@@ -1,4 +1,9 @@
-## Markdown
+# Diff Checker
+- code's diff-checker editor - CLI: ```code --diff <file1> <file2>``` -
+  - in GUI: in File Explorer -> right click on the file -> `select for compare` and `compare with selected`
+  - or select 2 files and `compare selected`
+
+# Markdown
 - [slides](https://github.com/mike-works/vscode-fundamentals/blob/master/docs/1_using/markdown.md)
 - you can use img tags (like in html) and give them a lot of options
   `<img src="vscode_icon.png" height=50 align=right vspace=20 />`
@@ -25,7 +30,7 @@
 </dl>
 ```
 
-## Emmet
+# Emmet
 |              Tip & What is about               |                                                                 Section                                                                 |
 | :--------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: |
 |      Find the process using specific port      |                                                           VS Code can do that                                                           |
