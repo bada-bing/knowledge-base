@@ -30,13 +30,20 @@
 9. Notebook Manager
    1. OneNote
 10. Shell: ZSH + Starship Prompt + oh-my-zsh
-    1.  git-bash - Windows ❓ (do I need it)
+    0. no `fish` until I am sure what I am doing (since fish is not POSIX compliant)
+    1. git-bash - Windows ❓ (do I need it)
+    2. `oh-my-zsh` configuration manager
+       - Large Community-Driven Framework for all sorts of bells and whistles
+    - Use `zc` command/alias to edit `.zshrc` file
 11. Terminal Emulator:
    2. WSL 1 & 2 in Windows ⭐ + Windows Terminal
    3. Konsole in Linux
+   4. 3. Tmux and Tmuxp
+    - `Tmuxp` is a Tmux wrapper (written in Python) which simplifies configuration of Tmux sessions
+    - Used to automatise steps, when there are multiple shells (and commands) which you execute often (e.g, to start local development)
 12. Encryption
-   4. VeraCrypt
-   5. Cryptomator
+   5. VeraCrypt
+   6. Cryptomator
 13. Docker
 14. VPN
     1.  ExpressVPN
@@ -51,3 +58,47 @@
 
 18. Windows Specific
     1.  PowerToys
+
+
+What about web-tools (e.g, pocket)
+
+# Configuration
+
+- Important plugins: zsh-autosuggestions & zsh-syntax-highlighting
+```
+- Next you need to enable plugins which you want to use in your zshrc
+  - `$ZSH_CUSTOM` - the path to custom_plugins
+
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+plugins+=(zsh-nvm) # update this line to ~/.zshrc
+# ! zsh-auto-suggestions are missing in this installation section of plugins
+```
+
+# Windows Configuration
+- Consider saving following settings files in dotfiles instead of Gists (once you publish the project to the GitHub)
+1. WT `settings.json` - stored in `Windows` Gist
+   - ❌ Gist is not the most managable solution since I need to manually copy the content of settings and pics are missing
+   - is it possible to split settings file somehow ❓
+   - you will need to install Cascadia Code PL (https://github.com/microsoft/cascadia-code/releases)
+   - website for different themes https://atomcorp.github.io/themes/
+2. Ueli Settings ❌
+   - Settings are stored in the `Windows` Gist.
+   - Once you install the application, import them using the provided option in the settings of the app.
+   - ⭐ Important, it is improtant to have the directory structure consistent across all machines, since some shortcuts will not work otherwise
+3. Power Toys
+   - The most important settings which are customized in the same Gist as WT Settings
+   - This is the set of instructions to me what I should change, the tool does NOT have extractable settings...
+
+
+## Other Applications
+4. Docker for Desktop
+   - currently the only important setting is to use WSL2 as the engine
+
+
+# General OS Tips: (X-Platform Tips)
+- Increase mouse speed
+
+## Windows OS Settings
+   - this is really useful... collect some ideas and how and where to collect them

@@ -1,16 +1,3 @@
-- [Useful Bash Commands](https://itnext.io/increase-developer-productivity-with-unix-bash-command-one-liners-2973bccd7600)
-- http://www.bashoneliners.com/oneliners/popular/?source=post_page-----2973bccd7600----------------------
-- https://quickleft.com/blog/command-line-tutorials-tips-tricks/
-- https://itnext.io/increase-developer-productivity-with-unix-bash-command-one-liners-2973bccd7600
-- [gnome-walkpaper](https://extensions.gnome.org/extension/1200/walkpaper/) - - change background of workspaces
-  - [cross-platform alternative](https://github.com/hhannine/Superpaper)
-
-Sections
-[CLI Tools](./CLI/README.md.md)
-
-General OS Tips:
-- Increase mouse speed
-
 # Important Questions
 - Distinction between "home" and "root" dir
 - [How to configure Linux](./configuration.md)

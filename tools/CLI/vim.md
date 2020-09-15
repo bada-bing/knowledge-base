@@ -20,3 +20,27 @@ Vim (and other CLI tools) use ANSI codes
 
 On some systems in order to have syntax highlighting you need to install vim-common
 `sudo apt-get install vim vim-common`
+
+
+:set number relativenumber
+	- show the actual number of the current line
+	- show relative numbers of the lines which surround it
+
+:set complete=., …, kspell
+	- set complete specifies where vim will look for auto-completion suggestions
+	- kspell is the dictionary but only if the "spell" (spelchecking) is enabled in vim
+		○ you set spelling with ":set spell"
+	- otherwise to always look for it set "k" instead of kspell
+	- kspell is better … because you want to have this option enabled only in some cases
+		○ eg, you write commit message, you write email, …
+
+
+check what are cnext and cprevious
+
+What are registers in VIM?
+	- the guy uses them to store some text (like in clipboard)
+	- CTRL-a/b (select a/b register)
+	- dot register holds the text which you entered last time you were in the INSERT mode
+
+ctrl+r insert text from a register
+ctrl+a last inserted text
