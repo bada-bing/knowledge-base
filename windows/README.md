@@ -18,6 +18,8 @@
 - [customizing-WT](https://www.howtogeek.com/426346/how-to-customize-the-new-windows-terminal-app/)
 - how to add gitbash to WT [SO link](https://stackoverflow.com/questions/56839307/adding-git-bash-to-the-new-windows-terminal)
 - [Ideas for configuring WT](https://gist.github.com/bitcrazed/e906376cd895364410a8280fdcd30a50)
+- https://docs.microsoft.com/en-us/windows/terminal/command-line-arguments?tabs=windows
+- https://devblogs.microsoft.com/commandline/windows-terminal-preview-1-3-release/
 
 
 How to find MS directories:

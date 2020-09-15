@@ -29,24 +29,21 @@
     - Stop it: sudo systemctl stop gdm (or sudo telinit 3)
     - Restart it: sudo systemctl start gdm (or sudo telinit 5)
 
-
-
 ## Cool Tips
-	2. "fc" - to fix a really long command which you messed up (opens the editor)
-	3. Create a super fast ram disk (this is temporary but it looks really cool)
-		- mkdir -p /mnt/ram
-		- mount -t tmpfs tmpfs /mnt/ram -o size=8192M
-	4. If you add the space in front of the command the command will not be added to the history
-		- " ls -l"
-	5. tunnel with ssh (local port 3337 -> remote host's 127.0.0.1 on port 6379)
+1. `fc` - to fix a really long command which you messed up (opens the editor)
+2. Create a super fast ram disk (this is temporary but it looks really cool)
+   - mkdir -p /mnt/ram
+   - mount -t tmpfs tmpfs /mnt/ram -o size=8192M
+3. If you add the space in front of the command the command will not be added to the history: ` ls -l`
+4. tunnel with ssh (local port 3337 -> remote host's 127.0.0.1 on port 6379)
 		- ssh -L 3337:127.0.0.1:6379 root@emkc.org -N
-	6. Quckly create folders
+5. Quckly create (multiple) folders
 		- mkdir -p folder/{sub1,sub2}/{sub1,sub2,sub3}
-	7. Exit terminal but leave all the (sub)processes running
-		- disown -a && exit
+6. Exit terminal but leave all the (sub)processes running
+- `disown -a && exit`
 
 # Other
-Standard Streams - stdin and stdout
+Standard Streams - `stdin` and `stdout`
 - on the other hand there are File Descriptors - they represent unique numbers of currently open files (or something like that)
 
 - POSIX - Portable OS Interface
