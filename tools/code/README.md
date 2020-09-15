@@ -16,12 +16,18 @@ Requirements:
    2. this is directly related to integration with other tools (e.g, linting tools, docker,...)
 3. Nice UI
 
-How to satisfy requirements:
+How can the tool help me to satisfy the requirements:
 1. Features
    - important Keybindings and Tips for the available Features
 2. Customization (what would be relation between extensions and customization, and customization and shortcuts)
    1. Extensions (don't use what you don't need; don't be affraid to try new things)
    2. Settings & Keybindings
+
+What can I do about it?
+1. I will not hesitate to try new tools, extensions, features and make research about new stuff
+2. I will keep my documentation up-to-date and my customization settings syncronized
+3. I will use only what I need (will try hard not to overengineer, and use only extensions which I really need)
+4. I will optimize the tool and its usage to my needs, and not vice versa.
 
 # Features
 * [Navigation and Search](1_navigation_and_search.md)

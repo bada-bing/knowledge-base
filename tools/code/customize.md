@@ -1,17 +1,10 @@
 Community curated extension lists, such as [awesome-vscode](https://github.com/viatsko/awesome-vscode)
 
-# Main Principle:
-  1. Do not fear to try new stuff and even break something
-  2. Make it as simple as possible (do not use what you don't need)
-
-## What to Consider when Customizing:
 - Theme: One Dark Pro
   - alternative: [Dracula](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
 - Icons Theme: [Material Icons Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
-- Font: Fira Code (with ligatures)
-  - In settings.json:
-	- ```"editor.fontFamily": "Fira Code", "editor.fontLigatures": true```
-	- font size to **15**
+
+## What to Consider when Customizing:
 - Keyboard Shortcuts
 - Tune your settings (settings.json)
 - ❔ Add JSON validation
@@ -32,51 +25,39 @@ Community curated extension lists, such as [awesome-vscode](https://github.com/v
 Settings (UI) - in the background uses **Azure's AI** (when connected to the Internet)
 - it will aim to give the best interpretation of your query and guess what you really want
 
-
 ## List of Tweaks for VS Code (in Settings.json)
-- *Instead of describing here settings, put comments in settings.js*
-- Cluster your settings.json (and desribe sections with comments)
--
-  - ❗ This list is temporary, the plan is to use `settings.json` as the documentation itself ❗
-  - Sidebar on the right side - looks more intuitive
-  - Trim white space … this is done for me on autosave so it is not necessary
-  - `editor.tabSize` number of spaces when pressing `tab` key
-  - `editor.formatOnSave`
-  - `editor.formatOnPaste: true`
-  - `editor.detectIndentation: false` - so it does not override editor.tabSize settings
-  - ⭐ `files.exclude`	files/folders to exclude (ie, hide) in files explorer
-      - you can use glob patterns
+- The `settings.json` serve as the documentation itself ❗ Check it to understand what did you customize.
+  - Cluster your settings.json (and desribe sections with comments)
+
+  - The list of following settings should also be moved into `settings.json` file, that should serve as the documentation
   - ⭐`emmet.includeLanguages`	- enable emmet abbreviations in languages which are not support by default
   - `javascript.updateImportsOnFileMove.enabled` - updates import statements when file name is changed for js files
   - `typescript.updateImportsOnFileMove.enabled`
   - `explorer.openEditors.visible: 0`	Toggle off "Open Editors" option in VS Code
   - `enable npm script explorer`	- to run npm scripts from VS Code (add play button)
   - in omnibox run "View: Toggle Minimap"
+  - `javascript.implicitProjectConfig.checkJs` - this will check your JS (like TS) files (it is like setting `//@ts-check` on every js file)
 
 - Settings u VS code su takodje language specific (e.g., markdown, ts)
 	- e.g, disable minmap only for markdown
 
-`npm script explorer: true` - enable npm scripts in the file explorer sidebar
-
-there is a setting `javascript.implicitProjectConfig.checkJs` - this will check your JS (like TS) files (it is like setting `//@ts-check` on every js file)
-
-vscode can for different projects hide/exclude certain files
-- e.g., if you are not interested in node modules you can hide that
-- in settings.json you add something like
-```json
-{
-  "files.exclude": {
-    "**/*.js": true
-  }
-}
-```
-
-- In Settings you can create language associations for File Extensions that are not detected accurately (eg, many config files are in JSON):
+- You can create language associations for File Extensions that are not detected accurately (eg, many config files are in JSON):
 ```json
 "file. associations" : {
  ".database" : "json"
  }
 ```
+- ⭐ `files.exclude`	files/folders to exclude (ie, hide) in files explorer
+      - you can use glob patterns
+      - - e.g., if you are not interested in node modules you can hide that
+      - in settings.json you add something like
+        ```json
+        {
+          "files.exclude": {
+            "**/*.js": true
+          }
+        }
+        ```
 
 # Extensions
 ## Next To Consider
