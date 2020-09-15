@@ -9,6 +9,7 @@ Community curated extension lists, such as [awesome-vscode](https://github.com/v
 - Tune your settings (settings.json)
 - ❔ Add JSON validation
 - Create snippets
+  - you should start creating user snippets (and invest time learning ones which you already know)
 - Install extensions
 
 ## Customization
@@ -18,12 +19,15 @@ Community curated extension lists, such as [awesome-vscode](https://github.com/v
   - User %APPDATA\Code\User\Settings.json (Windows)
   - User $HOME/.config/Code/User/Settings.json (Windows)
   - Defaults that ship with editor
-  - you can edit user and workspace settings using CTRL + , (there are different tabs for user and workspace settings)
-- pro tip: don't install many fonts (they all take space in the ram (all the time) - there is table with fonts which is loaded into ram)
-- you should start creating user snippets (and invest time learning ones which you already know)
+
+- Edit User and Workspace Settings using `CTRL + ,` (there are different tabs for user and workspace settings)
+- ⭐ don't install many fonts (they all take space in the ram (all the time) - there is table with fonts which is loaded into ram)
 
 Settings (UI) - in the background uses **Azure's AI** (when connected to the Internet)
 - it will aim to give the best interpretation of your query and guess what you really want
+
+## Synchronization
+- Using default feature of VS Code. The relevant account is `github:bada-bing`
 
 ## List of Tweaks for VS Code (in Settings.json)
 - The `settings.json` serve as the documentation itself ❗ Check it to understand what did you customize.
