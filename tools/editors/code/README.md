@@ -64,3 +64,10 @@ What can I do about it?
 - [navigation](./code/1_navigation.md)
 - [linting](./code/linting.md.md)
 - [debugging](#debugging)
+
+
+You can easily create a sub-folder from an already existing file. To do this, select a file and click on rename. Then, add a backslash (/) at the point you need it to be demarcated from.
+
+E.g. To create a bio sub-folder from authorbio.js, type author/bio.js
+
+`$ZSH_CUSTOM` - the path to custom_plugins

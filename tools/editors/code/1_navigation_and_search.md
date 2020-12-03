@@ -1,3 +1,9 @@
+Consider Improving your Keyboard Shortcuts for switching between Editor and Terminal
+and addtionally on switching between different tabs in the terminal
+- additionally set WT as default external Terminal:
+https://offering.solutions/blog/articles/2020/03/24/setting-windows-terminal-as-default-external-terminal-in-visual-studio-code/
+
+
 # Essential Navigation
 ## Omnibox - Fuzzy File Navigation (Ctrl + p)
   - `Ctrl + Enter` (instead of `Enter`) will open the File in the Side Window

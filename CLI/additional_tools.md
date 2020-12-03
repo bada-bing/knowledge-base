@@ -39,6 +39,8 @@ To get the contents of a web page and store it to a file, type curl -o saved.htm
 
 https://catonmat.net/cookbooks/curl
 
+test this really good alternative: https://httpie.org/
+
 - wget - retrieve **files** using HTTP, HTTPS, FTP, FTPS
   - ```wget <url>```
 - echo - displays a line of text/string that is passed as an argument
