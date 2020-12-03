@@ -1,14 +1,15 @@
 # Manipulating Text Tools
-1. grep [Global RegEx Print]
-   - search for patterns in file(s)
-   - ```grep [flags] 'pattern' file```
-     - e.g., ```grep -i '[^.!?]*apple[^.!?]*[.]' some_file.txt```
-     - this command should print all lines which contain word apple in the file **some_file.txt**
+1. `grep` [Global RegEx Print] searches for patterns in text files and data streams  and can be used with regular expressions.
+   - looks for patterns in lines, and prints each line that matches the pattern
+   - `grep [flags] 'pattern' file`
+     - e.g., print all lines which contain word apple: ```grep -i '[^.!?]*apple[^.!?]*[.]' some_file.txt```
        - probably not completely correct but will work in most cases
      - regex pattern goes into ''
-   - looks for patterns in lines, and prints each line that matches the pattern
      - lines are separated with "\n" newline characters
-  - http://www.robelle.com/smugbook/regexpr.html
+- http://www.robelle.com/smugbook/regexpr.html
+
+`grep -R foobar` will search for foobar in all files in current dir
+- check also its (newer) alternative "rg" or "ripgrep"
 
   Flags
   | Flag         |                                                                                                                             Description |
@@ -17,7 +18,7 @@
   | -v           |                                                                                         invert matches (lines which do not match regex) |
   | -c [--count] | General Output **C**ontrol (supress normal output, instead print the count of lines which match the regex, i.e., number of occurencies) |
   | -o | only point the matching part of the line, not the whole line |
-  | -E [aka egrep] | escape special characters |
+  | -E [aka egrep] | escape special characters (use special characters such as ".+" (one or more of any character); without this flag you would have to escape +, i.e., ```.\+```) |
   | -F | ❔ don't treat the match string as regex |
   | -r [recursive] | search all files in a directory |
   | -f | only show filenames of the files that matched |
@@ -26,12 +27,11 @@
   | -C [context] NUM | prints NUM of lines which surround the matched pattern |
   | -a  | search binaries (treat binary data as text, instead of ignoring it) |
 
--E enables to use special characters such as ".+" (one or more of any character); without this flag you would have to escape +, i.e., ```.\+```
-
 Alternatives to grep (better for searching code):
 - ack, ag, ripgrep
 - zgrep: grep for gzip files [gzip command](https://www.geeksforgeeks.org/gzip-command-linux/)
 - pgrep: https://linuxize.com/post/pgrep-command-in-linux/
+
 2. sed [Stream Editor]
   - Used for string manipulation using regex
   - ```sed options 'command' file```

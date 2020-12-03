@@ -16,14 +16,21 @@
 ## Finding Files and Text
 `find . -name src -type d` find within the current dir all folders (d) with name src
 - find has many useful flags
+  - find path -name filename
+    - `find . -name index.js`
   - eg, -mtime (time modified)
+  - find files of particular type
+    - `find . -name "*.js"`
   - -type can be d (dir), f (file)
   - it also has -exec which can specify what to execute when find that files but you need to research how to do that properly (has some funny syntax at the end)
     - `find . -name "*.tmp" -exec rm {} \;`
+  - `find . -maxdepth 3 -name '*ui.sh'`
   - fd is upgraded version of find (ignores git structure and colors the output)
+
+- [fzf](https://github.com/junegunn/fzf)
+- [fd](https://github.com/sharkdp/fd) - simple and fast alternative to find
+	- check how to color the output
+	- [fd vs find](https://search.app.goo.gl/GQ2Nsqx)
 
 check locate and updatedb
   - they can be really useful if you are using some files consistently (and you are doing exactly that)
-
-`grep -R foobar` will search for foobar in all files in current dir
-- check also its (newer) alternative "rg" or "ripgrep"
