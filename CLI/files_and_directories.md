@@ -5,10 +5,16 @@
   - `cd -` (change to previous directory)
   - Absolute Path: `/usr/bin/...`
   - Relative Path: `./bin/...`
+  - Directory History: `pushd`, `popd`, `dirs`
+  - https://www.howtogeek.com/659146/how-to-use-pushd-and-popd-on-linux/
 4. - mkdir - make directory
    - remove files "rm"; remove directories `rm -rf`
      - `rm -f` - forcefully, `rm -i` - interactively
    - mv & cp
+   - `mv` behaves similarly like cp
+	- the point is that the oriignal file/dir is gone after the action
+`mkdir -p a/b/c/d`
+	- creates all directories (if a also does not exist)
 5. **touch** to create files (without content),
   - `touch {en-US, de-DE}.json`
   - touch can be used to modify timestamp of an (existing) file ("change when it is touched")
@@ -32,5 +38,8 @@
 	- check how to color the output
 	- [fd vs find](https://search.app.goo.gl/GQ2Nsqx)
 
-check locate and updatedb
+check `at` & `locate` & `updatedb` commands
   - they can be really useful if you are using some files consistently (and you are doing exactly that)
+
+- `tree` - gives the tree structure of the directory
+	- `tree -d` gives only directories (only files)

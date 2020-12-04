@@ -19,3 +19,4 @@
 - https://www.howtogeek.com/513003/how-to-use-netstat-on-linux/
 - nmap - port scanner
   - https://www.techrepublic.com/article/how-to-listen-to-port-traffic-on-a-linux-server/
+- ping vs traceroute (traceroute gives the number and more details about hops to certain IP address)

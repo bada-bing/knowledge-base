@@ -18,33 +18,43 @@
 - `strings` extracts printable character strings from binary files.
 - `z` command family is used to read and work with compressed files.
 - `watch` - watch the output of a certain command every 2 seconds
-
-## Other Commands
+- `jobs` - which jobs are running
+- `fg` - puts the program into the foreground | `bg` runs jobs in the background
+- `service` - access daemons running in the background
+- `<C-z>` puts the job in background
+- `killall`
+- `history`
+- `pstree` - show (active) processes in the form of a tree
 - [jq](https://stedolan.github.io/jq/) - json query tool
   - like sed for JSON; it can colorize output and it has a lot of cool features
   - https://www.howtogeek.com/529219/how-to-parse-json-files-on-the-linux-command-line-with-jq/
-
-- killall
-- pstree - show (active) processes in the form of a tree
+- `read` is used to read the input
+  - e.g., `read LINE`
+	- you enter some text and that is stored in ENV called LINE
+- `file`
+	- used to determine the type of the file (or directory)
+- `sort`
+	- used to sort lines in data file
 - [uniq](https://en.wikipedia.org/wiki/Uniq) [used together with sort]
-- history
-- kill vs pkill
+- `lsof`
+  - https://www.ubuntupit.com/simple-and-effective-lsof-command-in-linux/
+- `notify-send`: https://www.thegeekstuff.com/2010/12/ubuntu-notify-send/
+- `kill` vs `pkill`
   - [Fkill-cli](https://github.com/sindresorhus/fkill-cli) - fabulously kill processes (fkill)
-  - Tired of ps -ef | grep <process> and then kill <PID>? fkill kills processes by name, e.g. fkill node.
-- fg
-- Directory History: `pushd`, `popd`, `dirs`
-  - https://www.howtogeek.com/659146/how-to-use-pushd-and-popd-on-linux/
-- `service` - access daemons running in the background
+  - Tired of `ps -ef | grep <process>` and then `kill <PID>`? `fkill` kills processes by name, e.g. `fkill node`.
 - [z](https://github.com/rupa/z) or alternative [autojump](https://github.com/wting/autojump)
   - jump to frequently vistied directory
-- tree (possibly needs to be installed)
-	- gives the tree structure of the directory
-	- `tree -d` gives only directories (only files)
-- ping vs traceroute (traceroute gives the number and more details about hops to certain IP address)
+- `pgrep` searches for a process by its name
+  - and `pkill`
 
-lsof
-- https://www.ubuntupit.com/simple-and-effective-lsof-command-in-linux/
+- `reset` - resets the shell and fixes usually all weird problems
+- check `tail -f` useful for logging
+- `watch` command --- watches for file changes
 
-notify-send: https://www.thegeekstuff.com/2010/12/ubuntu-notify-send/
+**flags** are sometimes called **switch**
 
-check `at` & `locate` commands
+alternative to `calendar` is `ncal -e` (determines when the easter it is)
+
+try this one : curl http://wttr.in/paderborn
+	- gives the current weather
+	- create alias for that

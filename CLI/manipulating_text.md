@@ -1,4 +1,17 @@
 # Manipulating Text Tools
+grep
+	- searchs for lines which contain the pattern
+	- -n flag shows lines where the pattern is matched
+	- -v is reversed flag (which lines do not contain the pattern)
+	- -c is the count of how many lines contain the pattern
+	- if you want multiple individual patterns use -e
+		○ grep -e pattern1 -e pattern2 file
+	- in general grep uses default UNIX RegEx patterns to match patterns
+		○ e.g., grep [tf] file1
+			§ find either t or f
+There are also egrep (allows to specify POSIX extended regular expressions) and fgrep
+bonus: https://www.geeksforgeeks.org/difference-between-grep-and-fgrep-command/
+
 1. `grep` [Global RegEx Print] searches for patterns in text files and data streams  and can be used with regular expressions.
    - looks for patterns in lines, and prints each line that matches the pattern
    - `grep [flags] 'pattern' file`
