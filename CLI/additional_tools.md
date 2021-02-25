@@ -18,13 +18,7 @@
 - `strings` extracts printable character strings from binary files.
 - `z` command family is used to read and work with compressed files.
 - `watch` - watch the output of a certain command every 2 seconds
-- `jobs` - which jobs are running
-- `fg` - puts the program into the foreground | `bg` runs jobs in the background
-- `service` - access daemons running in the background
-- `<C-z>` puts the job in background
-- `killall`
 - `history`
-- `pstree` - show (active) processes in the form of a tree
 - [jq](https://stedolan.github.io/jq/) - json query tool
   - like sed for JSON; it can colorize output and it has a lot of cool features
   - https://www.howtogeek.com/529219/how-to-parse-json-files-on-the-linux-command-line-with-jq/
@@ -39,14 +33,17 @@
 - `lsof`
   - https://www.ubuntupit.com/simple-and-effective-lsof-command-in-linux/
 - `notify-send`: https://www.thegeekstuff.com/2010/12/ubuntu-notify-send/
-- `kill` vs `pkill`
-  - [Fkill-cli](https://github.com/sindresorhus/fkill-cli) - fabulously kill processes (fkill)
-  - Tired of `ps -ef | grep <process>` and then `kill <PID>`? `fkill` kills processes by name, e.g. `fkill node`.
 - [z](https://github.com/rupa/z) or alternative [autojump](https://github.com/wting/autojump)
   - jump to frequently vistied directory
-- `pgrep` searches for a process by its name
-  - and `pkill`
-
+  - How to install:
+    ```bash
+    # Download to latest to home dir
+    wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
+    # Add to .bashrc
+    echo . /path/to/z.sh >> ~/.bashrc
+    # Add to .zshrc
+    echo . /path/to/z.sh >> ~/.zshrc
+    ```
 - `reset` - resets the shell and fixes usually all weird problems
 - check `tail -f` useful for logging
 - `watch` command --- watches for file changes
@@ -55,6 +52,6 @@
 
 alternative to `calendar` is `ncal -e` (determines when the easter it is)
 
-try this one : curl http://wttr.in/paderborn
+`curl http://wttr.in/paderborn`
 	- gives the current weather
 	- create alias for that

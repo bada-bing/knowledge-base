@@ -1,0 +1,15 @@
+- `jobs` - which jobs are running
+- `fg` - puts the program into the foreground | `bg` runs jobs in the background
+- `service` - access daemons running in the background
+- `kill` vs `pkill`
+  - [Fkill-cli](https://github.com/sindresorhus/fkill-cli) - fabulously kill processes (fkill)
+  - Tired of `ps -ef | grep <process>` and then `kill <PID>`? `fkill` kills processes by name, e.g. `fkill node`.
+- `killall`
+- `pstree` - show (active) processes in the form of a tree
+Signals
+- `<C-z>` puts the job in background
+- `pdiof` command --- find the id of the process of a running app
+- `pgrep` searches for a process by its name (similar to pdiof but does not require exact name)
+  - and `pkill`
+- `ps -ef` (e -all processes, f - descriptive)
+- `top`
